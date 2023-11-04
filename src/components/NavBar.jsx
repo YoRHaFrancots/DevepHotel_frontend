@@ -53,7 +53,7 @@ const NavBar = () => {
             </li>
           </ul>
         </div>
-        <button>Inicio Sesión</button>
+        <button className="btn btn-success">Inicio Sesión</button>
       </div>
     </nav>
   );
