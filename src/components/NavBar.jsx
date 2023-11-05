@@ -83,7 +83,7 @@ const NavBar = ({ modoOscuro, cambiarModo }) => {
             <button
               className={
                 modoOscuro
-                  ? "btn btn-secondary fw-bold"
+                  ? "btn btn-secondary m-2 fw-bold"
                   : "btn btn-info m-2 fw-bold"
               }
             >
