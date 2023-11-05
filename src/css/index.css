@@ -51,11 +51,19 @@
 
 .form-container_homeScreen {
   background: #48a2d4;
-  filter: opacity(80%);
-  padding: 20px;
+  filter: opacity(85%);
+  padding: 2%;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   text-align: start;
   max-width: 400px;
   width: 100%;
+}
+
+.input_formPersonas {
+  width: 50px;
+}
+
+.input_form {
+  justify-content: end;
 }
