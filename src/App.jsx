@@ -8,6 +8,7 @@ import ContactScreen from "./pages/ContactScreen"
 import GalleryScreen from "./pages/GalleryScreen"
 import LoginScreen from "./pages/LoginScreen"
 import HotelScreen from "./pages/HotelScreen"
+import RegScreen from "./pages/RegScreen"
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/gallery" element={<GalleryScreen />} />
           <Route path="/login" element={<LoginScreen />} />
           <Route path="/hotel" element={<HotelScreen />} />
+          <Route path="/register" element={<RegScreen/>} />
         </Routes>
         <Footer />
       </BrowserRouter>
