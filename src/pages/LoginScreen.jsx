@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import "../css/loginregister.css"
 
 const LoginScreen = () => {
   const {
@@ -13,7 +14,7 @@ const LoginScreen = () => {
     console.log(data);
   };
   return (
-    <div>
+    <div className="bg-login">
       <div className="container">
         <div className="row vh-100 d-flex align-items-center">
             
@@ -70,7 +71,7 @@ const LoginScreen = () => {
                     </button>
                   </div>
                 </form>
-                <span className="text-center"><Link to="/register">¿No tiene una cuenta? Crear nuevo</Link></span>
+                <p className="text-center">¿No tiene una cuenta?<Link to="/register"> Crear nuevo</Link></p>
                 
               </div>
             </div>

@@ -12,7 +12,7 @@ const RegScreen = () => {
     console.log(data);
   };
   return (
-    <div>
+    <div className="bg-register">
       <div className="container">
         <div className="row vh-100 d-flex align-items-center ">
           <div className="col-12 col-md-6 offset-md-3">
@@ -96,7 +96,7 @@ const RegScreen = () => {
                   </section>
                   <div className="text-end">
                     <button type="submit" className="btn btn-primary">
-                      Iniciar
+                      Registrarse
                     </button>
                   </div>
                 </form>

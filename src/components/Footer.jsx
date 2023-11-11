@@ -14,14 +14,17 @@ const Footer = () => {
           <a href="enlaceFacebook" className="logos_redes">
             <FontAwesomeIcon icon={faFacebook} />
           </a>
-          <a href="enlaceTwiter" className="logos_redes">
+          <a href="enlaceTwiter" className="logos_redes ms-4">
             <FontAwesomeIcon icon={faTwitter} />
           </a>
-          <a href="enlaceInstagram" className="logos_redes">
+          <a href="enlaceInstagram" className="logos_redes ms-4">
             <FontAwesomeIcon icon={faInstagram} />
           </a>
+          
         </div>
+        
       </div>
+      
     </footer>
   );
 };
