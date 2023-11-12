@@ -20,6 +20,9 @@ body {
 }
 
 .paginaError404 {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
 }
 
 .logos_redes_modoOscuro {
