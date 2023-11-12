@@ -1,6 +1,7 @@
 import React from "react";
 import logoDevepHotel from "../assets/imgs/logoDevepHotel.png";
 import "../css/index.css";
+import "../css/paginaInicio.css";
 import { NavLink, Link } from "react-router-dom";
 
 const NavBar = ({ modoOscuro, cambiarModo }) => {
