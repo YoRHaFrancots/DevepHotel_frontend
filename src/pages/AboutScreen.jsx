@@ -1,9 +1,9 @@
-import React from 'react'
+// import React from 'react'
 
-const AboutScreen = () => {
-  return (
-    <div>AboutScreen</div>
-  )
-}
+// const AboutScreen = () => {
+//   return (
+//     <div>AboutScreen</div>
+//   )
+// }
 
-export default AboutScreen
+// export default AboutScreen
