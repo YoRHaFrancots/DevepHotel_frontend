@@ -9,7 +9,7 @@ import GalleryScreen from "./pages/GalleryScreen";
 import LoginScreen from "./pages/LoginScreen";
 import HotelScreen from "./pages/HotelScreen";
 import RegScreen from "./pages/RegScreen";
-
+import AdminScreen from "./pages/AdminScreen";
 // import AboutScreen from "./pages/AboutScreen";
 
 import Error404 from "./components/Error404";
@@ -39,7 +39,7 @@ function App() {
           <Route path="/login" element={<LoginScreen />} />
           <Route path="/hotel" element={<HotelScreen />} />
           <Route path="/register" element={<RegScreen />} />
-
+          <Route path="/admin" Component={AdminScreen}/>
           <Route path="*" element={<Error404 />} />
         </Routes>
         <Footer modoOscuro={modoOscuro} cambiarModo={cambiarModo} />
