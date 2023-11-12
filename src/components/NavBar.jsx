@@ -81,6 +81,11 @@ const NavBar = ({ modoOscuro, cambiarModo }) => {
                 onChange={cambiarModo}
               />
             </div>
+
+            <div>
+              
+            </div>
+
             <button
               className={
                 modoOscuro

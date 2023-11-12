@@ -1,0 +1,27 @@
+[
+    {
+      "id": 101,
+      "tipo": "Simple",
+      "precio_por_noche": 50,
+      "disponibilidad": true,
+      "etiqueta_foto": "https://images.pexels.com/photos/6636252/pexels-photo-6636252.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "descripcion": "Una habitación acogedora perfecta para aquellos que buscan comodidad y simplicidad en su estancia."
+    },
+    {
+      "id": 201,
+      "tipo": "Doble",
+      "precio_por_noche": 80,
+      "disponibilidad": true,
+      "etiqueta_foto": "https://images.pexels.com/photos/7214466/pexels-photo-7214466.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "descripcion": "Una habitación espaciosa con todas las comodidades necesarias para una estancia confortable en pareja."
+    },
+    {
+      "id": 301,
+      "tipo": "Familiar",
+      "precio_por_noche": 120,
+      "disponibilidad": true,
+      "etiqueta_foto": "https://images.pexels.com/photos/14021931/pexels-photo-14021931.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "descripcion": "Una suite familiar perfecta para aquellos que viajan con niños, con amplios espacios y servicios adaptados."
+    }
+  ]
+  

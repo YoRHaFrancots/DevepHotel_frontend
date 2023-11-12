@@ -1,8 +1,9 @@
 import React from 'react'
+import CardRooms from '../components/CardRooms'
 
 const GalleryScreen = () => {
   return (
-    <div>GalleryScreen</div>
+    <CardRooms/>
   )
 }
 

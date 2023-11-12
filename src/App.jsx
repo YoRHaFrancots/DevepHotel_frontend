@@ -39,7 +39,7 @@ function App() {
           <Route path="/login" element={<LoginScreen />} />
           <Route path="/hotel" element={<HotelScreen />} />
           <Route path="/register" element={<RegScreen />} />
-          <Route path="/admin" Component={AdminScreen}/>
+          <Route path="/admin" Component={<AdminScreen/>}/>
           <Route path="*" element={<Error404 />} />
         </Routes>
         <Footer modoOscuro={modoOscuro} cambiarModo={cambiarModo} />
