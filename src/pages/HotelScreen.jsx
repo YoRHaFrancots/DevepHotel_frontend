@@ -98,12 +98,12 @@ const HotelScreen = () => {
             </div>
           </div>
         </div>
-        <div className="card mb-3 mt-4">
+        <div className="card mb-4 mt-4">
           <div className="row g-0">
             <div className="col-md-8 d-flex align-items-center">
-              <div className="card-body">
+              <div className="card-body mb-4">
                 <h5 className="card-title">DevepHotel, el Testimonio Vivo</h5>
-                <p className="card-text mt-2">
+                <p className="card-text mt-2 mb-4">
                   DevepHotel se convirtió en un testimonio vivo del amor y la
                   dedicación de estos cuatro amigos por su tierra. Cada rincón
                   del hotel cuenta la historia de su amistad, sus risas
