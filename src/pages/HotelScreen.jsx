@@ -4,10 +4,6 @@ import imgPueblo from "../assets/imgs/imgPueblo.jpg";
 import imgVistaVentana from "../assets/imgs/imgVistaVentana.avif";
 import imgHorreoAsturias from "../assets/imgs/imgHorreoAsturias.jpg";
 import imgOrdenadorEnBosque from "../assets/imgs/imgOrdenadorEnBosque.jpg";
-import bosques1 from "../assets/imgs/bosques1.jpg";
-import bosques2 from "../assets/imgs/bosques2.jpg";
-import bosques3 from "../assets/imgs/bosques3.jpg";
-import bosques4 from "../assets/imgs/bosques4.jpg";
 
 const HotelScreen = () => {
   return (
