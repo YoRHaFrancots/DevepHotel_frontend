@@ -1,0 +1,10 @@
+.bg-login{
+    background-image:url(../assets/imgs/pexels-suhel-vba-3659683.jpg);
+    background-size:cover
+    
+}
+.bg-register{
+    background-image: url(../assets/imgs/pexels-chepté-cormani-1416530.jpg);
+    background-size:cover;
+    background-position: top;
+}

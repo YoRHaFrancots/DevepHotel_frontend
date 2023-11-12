@@ -21,6 +21,7 @@ const Footer = ({ modoOscuro }) => {
           >
             <FontAwesomeIcon icon={faFacebook} />
           </a>
+
           <a
             href="enlaceTwiter"
             className={`m-3 ${
@@ -37,8 +38,11 @@ const Footer = ({ modoOscuro }) => {
           >
             <FontAwesomeIcon icon={faInstagram} />
           </a>
+          
         </div>
+        
       </div>
+      
     </footer>
   );
 };

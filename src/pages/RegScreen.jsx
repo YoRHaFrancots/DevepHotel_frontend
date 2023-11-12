@@ -1,34 +1,43 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
-import "../css/loginregister.css"
 
-const LoginScreen = () => {
+const RegScreen = () => {
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
   } = useForm();
-  const inicioSesion = async (data) => {
+  const registrarse = async (data) => {
     console.log(data);
   };
   return (
-    <div className="bg-login">
+    <div className="bg-register">
       <div className="container">
-        <div className="row vh-100 d-flex align-items-center">
-            
+        <div className="row vh-100 d-flex align-items-center ">
           <div className="col-12 col-md-6 offset-md-3">
-        
             <div className="card">
               <div className="card-body">
-                <form
-                  onSubmit={handleSubmit(inicioSesion)}
-                  className=" text-dark p-3 rounded w-100"
-                >
-                  <h1 className="text-center ">Iniciar sesión</h1>
+                <form onSubmit={handleSubmit(registrarse)}>
+                  <h1>Registrarse</h1>
                   <section className="row">
-                    <fieldset className="col-12 ">
+                  <fieldset className="col-12 ">
+                      <label htmlFor="Name-input" className="form-label ">
+                        Nombre y apellido
+                      </label>
+                      <input
+                        type="text"
+                        id="Name-input"
+                        className="form-control"
+                        {...register("nombre", {
+                          required: "Este campo es requerido",
+                          min:6
+                        })}
+                        required
+                      />
+                      <p className="text-danger">{errors.nombre?.message}</p>
+                    </fieldset>
+                  <fieldset className="col-12 ">
                       <label htmlFor="Email-input" className="form-label ">
                         Correo
                       </label>
@@ -64,15 +73,33 @@ const LoginScreen = () => {
                       />
                       <p className="text-danger">{errors.password?.message}</p>
                     </fieldset>
+                    <fieldset className="col-12">
+                      <label htmlFor="password-input" className="form-label ">
+                        DNI
+                      </label>
+                      <input
+                        type="number"
+                        id="number-input"
+                        className="form-control"
+                        {...register("dni", {
+                          required: "Este campo es requerido",
+                          pattern: {
+                            value: /^.{8,8}$/i,
+                            message:
+                              "El dni debe tener 8 caracteres",
+                          },
+                        })}
+                        required
+                      />
+                      <p className="text-danger">{errors.dni?.message}</p>
+                    </fieldset>
                   </section>
                   <div className="text-end">
                     <button type="submit" className="btn btn-primary">
-                      Iniciar
+                      Registrarse
                     </button>
                   </div>
                 </form>
-                <p className="text-center">¿No tiene una cuenta?<Link to="/register"> Crear nuevo</Link></p>
-                
               </div>
             </div>
           </div>
@@ -82,4 +109,4 @@ const LoginScreen = () => {
   );
 };
 
-export default LoginScreen;
+export default RegScreen;
