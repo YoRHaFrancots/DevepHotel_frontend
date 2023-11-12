@@ -10,6 +10,9 @@ import GalleryScreen from "./pages/GalleryScreen";
 import LoginScreen from "./pages/LoginScreen";
 import HotelScreen from "./pages/HotelScreen";
 
+import Error404 from "./components/Error404";
+
+
 function App() {
   const [modoOscuro, setModoOscuro] = useState(false);
 
@@ -32,6 +35,7 @@ function App() {
           <Route path="/gallery" element={<GalleryScreen />} />
           <Route path="/login" element={<LoginScreen />} />
           <Route path="/hotel" element={<HotelScreen />} />
+          <Route path="*" element={<Error404 />} />
         </Routes>
         <Footer modoOscuro={modoOscuro} cambiarModo={cambiarModo} />
       </BrowserRouter>
