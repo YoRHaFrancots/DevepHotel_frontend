@@ -8,7 +8,7 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="fixed-bottom bg-light ">
+    <footer className="bg-light footer">
       <div className="container text-center mb-2">
         <div className="social-icons">
           <a href="enlaceFacebook" className="logos_redes">
