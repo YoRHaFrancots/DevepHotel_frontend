@@ -1,3 +1,4 @@
+import { useState } from "react";
 import NavBar from "./components/NavBar";
 import "./App.css";
 import Footer from "./components/Footer";
@@ -8,15 +9,27 @@ import ContactScreen from "./pages/ContactScreen";
 import GalleryScreen from "./pages/GalleryScreen";
 import LoginScreen from "./pages/LoginScreen";
 import HotelScreen from "./pages/HotelScreen";
+
 import Error404 from "./components/Error404";
 
+
 function App() {
+  const [modoOscuro, setModoOscuro] = useState(false);
+
+  const cambiarModo = () => {
+    setModoOscuro(!modoOscuro);
+  };
   return (
-    <div>
+    <div className={modoOscuro ? "bg-secondary" : ""}>
       <BrowserRouter>
-        <NavBar />
+        <NavBar modoOscuro={modoOscuro} cambiarModo={cambiarModo} />
         <Routes>
-          <Route path="/" element={<HomeScreen />} />
+          <Route
+            path="/"
+            element={
+              <HomeScreen modoOscuro={modoOscuro} cambiarModo={cambiarModo} />
+            }
+          />
           <Route path="/about" element={<AboutScreen />} />
           <Route path="/contact" element={<ContactScreen />} />
           <Route path="/gallery" element={<GalleryScreen />} />
@@ -24,7 +37,7 @@ function App() {
           <Route path="/hotel" element={<HotelScreen />} />
           <Route path="*" element={<Error404 />} />
         </Routes>
-        <Footer />
+        <Footer modoOscuro={modoOscuro} cambiarModo={cambiarModo} />
       </BrowserRouter>
     </div>
   );
