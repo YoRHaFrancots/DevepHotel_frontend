@@ -1,12 +1,17 @@
 import React from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import CardRooms from '../components/CardRooms'
-import Carousel from 'bootstrap'
+import Carousel from '../components/CarouselRooms'
 
 const GalleryScreen = () => {
   return (
-    <div><Carousel/></div>
-    
-  )
-}
+    <div className="container mb-4">
+      <h1 className="mt-4">Galería de Imágenes de Habitaciones</h1>
+      <Carousel />
 
-export default GalleryScreen
+      <CardRooms className="mt-3 mb-4"/>
+    </div>
+  );
+};
+
+export default GalleryScreen;
