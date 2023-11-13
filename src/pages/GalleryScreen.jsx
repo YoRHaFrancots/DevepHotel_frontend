@@ -1,9 +1,11 @@
 import React from 'react'
 import CardRooms from '../components/CardRooms'
+import Carousel from 'bootstrap'
 
 const GalleryScreen = () => {
   return (
-    <CardRooms/>
+    <div><Carousel/></div>
+    
   )
 }
 

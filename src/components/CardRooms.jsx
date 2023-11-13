@@ -1,9 +1,7 @@
 import React from 'react'
 
-const CardRooms = ({room}) => {
-    const {tipo, etiqueta_foto}= room
-
-    
+const CardRooms = () => {
+     
     
   return (
     <div className='card'> 
