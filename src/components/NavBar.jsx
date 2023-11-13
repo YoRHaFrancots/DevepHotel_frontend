@@ -82,15 +82,17 @@ const NavBar = ({ modoOscuro, cambiarModo }) => {
                 onChange={cambiarModo}
               />
             </div>
-            <button
-              className={
-                modoOscuro
-                  ? "btn btn-secondary m-2 fw-bold"
-                  : "btn btn-info m-2 fw-bold"
-              }
-            >
-              Inicio Sesión
-            </button>
+            <Link to="/login">
+              <button
+                className={
+                  modoOscuro
+                    ? "btn btn-secondary m-2 fw-bold"
+                    : "btn btn-info m-2 fw-bold"
+                }
+              >
+                Inicio Sesión
+              </button>
+            </Link>
           </div>
         </div>
       </nav>
