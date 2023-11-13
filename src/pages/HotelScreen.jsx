@@ -17,9 +17,9 @@ const HotelScreen = () => {
         <div className="TextoImgPricipalElHotel">Conoce nuestra historia</div>
       </div>
       <div className="m-3">
-        <div className="card mb-3 mt-4 bg-">
+        <div className="card mb-3 mt-4 ">
           <div className="row g-0">
-            <div className="col-md-4 d-flex d-flex align-items-center justify-content-center">
+            <div className="col-md-4 d-flex align-items-center justify-content-center">
               <img
                 src={imgPueblo}
                 className="img-fluid rounded-2 imgPueblo"

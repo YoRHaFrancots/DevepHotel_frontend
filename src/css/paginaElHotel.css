@@ -1,0 +1,22 @@
+.imgPrincipalElHotel {
+  width: 100%;
+  max-height: 70vh;
+  opacity: 0.7;
+}
+
+.TextoImgPricipalElHotel {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(21, 47, 55);
+  font-size: 4vw;
+  font-weight: bold;
+  z-index: 1;
+  text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+.imgPueblo {
+  height: 100vh;
+  width: 70%;
+}

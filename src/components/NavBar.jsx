@@ -1,6 +1,8 @@
 import React from "react";
 import logoDevepHotel from "../assets/imgs/logoDevepHotel.png";
 import "../css/index.css";
+import "../css/paginaInicio.css";
+import "../css/paginaElHotel.css";
 import { NavLink, Link } from "react-router-dom";
 
 const NavBar = ({ modoOscuro, cambiarModo }) => {
@@ -46,11 +48,11 @@ const NavBar = ({ modoOscuro, cambiarModo }) => {
                   El hotel
                 </NavLink>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <NavLink className="nav-link " aria-current="page" to="/about">
                   Conócenos
                 </NavLink>
-              </li>
+              </li> */}
               <li className="nav-item">
                 <NavLink
                   className="nav-link "
@@ -80,15 +82,17 @@ const NavBar = ({ modoOscuro, cambiarModo }) => {
                 onChange={cambiarModo}
               />
             </div>
-            <button
-              className={
-                modoOscuro
-                  ? "btn btn-secondary m-2 fw-bold"
-                  : "btn btn-info m-2 fw-bold"
-              }
-            >
-              Inicio Sesión
-            </button>
+            <Link to="/login">
+              <button
+                className={
+                  modoOscuro
+                    ? "btn btn-secondary m-2 fw-bold"
+                    : "btn btn-info m-2 fw-bold"
+                }
+              >
+                Inicio Sesión
+              </button>
+            </Link>
           </div>
         </div>
       </nav>
