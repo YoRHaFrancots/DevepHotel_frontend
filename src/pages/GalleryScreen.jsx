@@ -9,7 +9,7 @@ const GalleryScreen = () => {
       <h1 className="mt-4">Galería de Imágenes de Habitaciones</h1>
       <Carousel />
 
-      <CardRooms className="mt-3 mb-4"/>
+      <CardRooms className="mt-4 mb-4"/>
     </div>
   );
 };
