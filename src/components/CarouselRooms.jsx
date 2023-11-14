@@ -5,8 +5,9 @@ import imagen3 from '../assets/imgs/bungalows_family.jpeg'
 import '../css/carousel.css'
 
 const CarouselRooms = () => {
+
   return (
-    <div id="carouselRooms" className="carousel slide" data-bs-ride="carousel">
+    <div id="carouselExampleSlidesOnly" className="carousel slide" data-bs-ride="carousel">
       <div className="carousel-inner">
         <div className="carousel-item active">
           <img
