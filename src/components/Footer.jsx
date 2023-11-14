@@ -9,7 +9,7 @@ import {
 const Footer = ({ modoOscuro }) => {
   return (
 
-    <footer className={`fixed-bottom ${modoOscuro ? "bg-dark" : " bg-light "}`}>
+    <footer className={`mt-auto ${modoOscuro ? "bg-dark" : " bg-light "}`}>
 
       <div className="container text-center mb-2">
         <div className="social-icons">
