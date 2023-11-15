@@ -95,6 +95,17 @@ const NavBar = ({ modoOscuro, cambiarModo }) => {
             >
               Inicio Sesión
             </button>
+            <button
+              className={
+                modoOscuro
+                  ? "btn btn-secondary m-2 fw-bold"
+                  : "btn btn-info m-2 fw-bold"
+              }
+            >                <NavLink className="nav-link " aria-current="page" to="/admin/login">
+            Inicio Hotel
+          </NavLink>
+              
+            </button>
           </div>
         </div>
       </nav>
