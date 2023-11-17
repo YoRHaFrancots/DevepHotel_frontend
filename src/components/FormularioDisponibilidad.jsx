@@ -107,15 +107,11 @@ const FormularioDisponibilidad = () => {
       </div>
 
       <div className="d-flex justify-content-center mt-2">
-        <div className="d-flex justify-content-center mt-2">
-          <button
-            className="mt-2 rounded"
-            type="button"
-            onClick={() => handleConsultarDisponibilidad()}
-          >
+        <Link to="/login">
+          <button className="mt-2 rounded" type="submit">
             Consultar Disponibilidad
           </button>
-        </div>
+        </Link>
       </div>
     </form>
   );
