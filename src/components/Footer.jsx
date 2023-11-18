@@ -8,7 +8,9 @@ import {
 
 const Footer = ({ modoOscuro }) => {
   return (
+
     <footer className={`fixed-bottom ${modoOscuro ? "bg-dark" : " bg-light "}`}>
+
       <div className="container text-center mb-2">
         <div className="social-icons">
           <a
@@ -19,6 +21,7 @@ const Footer = ({ modoOscuro }) => {
           >
             <FontAwesomeIcon icon={faFacebook} />
           </a>
+
           <a
             href="enlaceTwiter"
             className={`m-3 ${
@@ -35,8 +38,11 @@ const Footer = ({ modoOscuro }) => {
           >
             <FontAwesomeIcon icon={faInstagram} />
           </a>
+          
         </div>
+        
       </div>
+      
     </footer>
   );
 };

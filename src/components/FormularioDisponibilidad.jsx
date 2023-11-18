@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm, Controller } from "react-hook-form";
+import { Link } from "react-router-dom";
 
 const FormularioDisponibilidad = () => {
   const {
@@ -106,9 +107,11 @@ const FormularioDisponibilidad = () => {
       </div>
 
       <div className="d-flex justify-content-center mt-2">
-        <button className="mt-2 rounded" type="submit">
-          Consultar Disponibilidad
-        </button>
+        <Link to="/login">
+          <button className="mt-2 rounded" type="submit">
+            Consultar Disponibilidad
+          </button>
+        </Link>
       </div>
     </form>
   );
