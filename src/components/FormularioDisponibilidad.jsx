@@ -1,8 +1,9 @@
 import React from "react";
 import { useForm, Controller } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const FormularioDisponibilidad = () => {
+  const history = useNavigate();
   const {
     handleSubmit,
     control,
@@ -33,8 +34,14 @@ const FormularioDisponibilidad = () => {
   };
 
   const enviarConsulta = (data) => {
+    if (!data.checkIn || !data.checkOut || !data.numeroDePersonas) {
+      setErrorMessage("Todos los campos son obligatorios");
+      return;
+    }
     // backend de disponibilidad
     console.log(data);
+
+    navigate("/login");
   };
 
   return (
@@ -105,13 +112,10 @@ const FormularioDisponibilidad = () => {
           )}
         />
       </div>
-
       <div className="d-flex justify-content-center mt-2">
-        <Link to="/login">
-          <button className="mt-2 rounded" type="submit">
-            Consultar Disponibilidad
-          </button>
-        </Link>
+        <button className="mt-2 rounded" type="submit">
+          Consultar Disponibilidad
+        </button>
       </div>
     </form>
   );
