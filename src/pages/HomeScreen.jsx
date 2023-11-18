@@ -12,6 +12,9 @@ const HomeScreen = ({ modoOscuro }) => {
         }`}
         alt="Imagen principal hotel"
       />
+      <div className="textoHomeScreen">
+        <h4>El primer hotel creado para desarrolladores web</h4>
+      </div>
       <div className="overlay_homeScreen">
         <div className="form-container_homeScreen">
           <FormularioDisponibilidad />
