@@ -3,7 +3,7 @@ import { useForm, Controller } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
 const FormularioDisponibilidad = () => {
-  const history = useNavigate();
+  const navigate = useNavigate();
   const {
     handleSubmit,
     control,
