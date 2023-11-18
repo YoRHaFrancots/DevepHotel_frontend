@@ -19,7 +19,7 @@ const HotelScreen = ({ modoOscuro }) => {
       <div className="m-3">
         <div
           className={` ${
-            modoOscuro ? "card mb-3 mt-4 bg-dark" : "card mb-3 mt-4 "
+            modoOscuro ? "card mb-3 mt-4 bg-secondary" : "card mb-3 mt-4 "
           }`}
         >
           <div className="row g-0">
@@ -59,7 +59,7 @@ const HotelScreen = ({ modoOscuro }) => {
         </div>
         <div
           className={` ${
-            modoOscuro ? "card mb-3 mt-4 bg-dark" : "card mb-3 mt-4 "
+            modoOscuro ? "card mb-3 mt-4 bg-secondary" : "card mb-3 mt-4 "
           }`}
         >
           <div className="row g-0">
@@ -91,7 +91,7 @@ const HotelScreen = ({ modoOscuro }) => {
         </div>
         <div
           className={` ${
-            modoOscuro ? "card mb-3 mt-4 bg-dark" : "card mb-3 mt-4 "
+            modoOscuro ? "card mb-3 mt-4 bg-secondary" : "card mb-3 mt-4 "
           }`}
         >
           <div className="row g-0">
@@ -124,7 +124,7 @@ const HotelScreen = ({ modoOscuro }) => {
         </div>
         <div
           className={` ${
-            modoOscuro ? "card mb-3 mt-4 bg-dark" : "card mb-3 mt-4 "
+            modoOscuro ? "card mb-3 mt-4 bg-secondary" : "card mb-3 mt-4 "
           }`}
         >
           <div className="row g-0">

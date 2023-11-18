@@ -2,12 +2,14 @@ import { useState } from "react";
 import NavBar from "./components/NavBar";
 import "./App.css";
 import Footer from "./components/Footer";
+import Error404 from "./components/Error404";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomeScreen from "./pages/HomeScreen";
 import ContactScreen from "./pages/ContactScreen";
 import GalleryScreen from "./pages/GalleryScreen";
 import LoginScreen from "./pages/LoginScreen";
 import HotelScreen from "./pages/HotelScreen";
+
 function App() {
   const [modoOscuro, setModoOscuro] = useState(false);
 
@@ -27,13 +29,19 @@ function App() {
           />
           <Route path="/contact" element={<ContactScreen />} />
           <Route path="/gallery" element={<GalleryScreen />} />
-          <Route path="/login" element={<LoginScreen />} />
+          <Route
+            path="/login"
+            element={
+              <LoginScreen modoOscuro={modoOscuro} cambiarModo={cambiarModo} />
+            }
+          />
           <Route
             path="/hotel"
             element={
               <HotelScreen modoOscuro={modoOscuro} cambiarModo={cambiarModo} />
             }
           />
+          <Route path="*" element={<Error404 />} />
         </Routes>
         <Footer modoOscuro={modoOscuro} cambiarModo={cambiarModo} />
       </BrowserRouter>

@@ -50,10 +50,10 @@
 
 .textoHomeScreen {
   position: absolute;
-  top: 20%; /* Ajusta según sea necesario */
+  top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  z-index: 2; /* Un valor mayor para que el texto quede sobre la imagen */
-  color: #fff; /* Puedes cambiar esto según tu diseño */
+  z-index: 2;
+  color: #fff;
 }
