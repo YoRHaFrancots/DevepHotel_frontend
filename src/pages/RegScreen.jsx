@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { usuarioAdd } from "../api/usuariosApi";
 
 const RegScreen = () => {
   const {
@@ -9,7 +10,9 @@ const RegScreen = () => {
     formState: { errors },
   } = useForm();
   const registrarse = async (data) => {
-    console.log(data);
+    console.log(data)
+    await usuarioAdd(data);
+    reset();
   };
   return (
     <div className="bg-register">
@@ -29,49 +32,13 @@ const RegScreen = () => {
                         type="text"
                         id="Name-input"
                         className="form-control"
-                        {...register("nombre", {
+                        {...register("apellidoynombre", {
                           required: "Este campo es requerido",
                           min:6
                         })}
                         required
                       />
-                      <p className="text-danger">{errors.nombre?.message}</p>
-                    </fieldset>
-                  <fieldset className="col-12 ">
-                      <label htmlFor="Email-input" className="form-label ">
-                        Correo
-                      </label>
-                      <input
-                        type="email"
-                        id="Email-input"
-                        className="form-control"
-                        {...register("email", {
-                          required: "Este campo es requerido",
-                        })}
-                        required
-                      />
-                      <p className="text-danger">{errors.email?.message}</p>
-                    </fieldset>
-
-                    <fieldset className="col-12">
-                      <label htmlFor="password-input" className="form-label ">
-                        Contraseña
-                      </label>
-                      <input
-                        type="password"
-                        id="password-input"
-                        className="form-control"
-                        {...register("password", {
-                          required: "Este campo es requerido",
-                          pattern: {
-                            value: /^.{8,16}$/i,
-                            message:
-                              "La Contraseña debe tener 8 caracteres mínimos",
-                          },
-                        })}
-                        required
-                      />
-                      <p className="text-danger">{errors.password?.message}</p>
+                      <p className="text-danger">{errors.apellidoynombre?.message}</p>
                     </fieldset>
                     <fieldset className="col-12">
                       <label htmlFor="password-input" className="form-label ">
@@ -93,6 +60,43 @@ const RegScreen = () => {
                       />
                       <p className="text-danger">{errors.dni?.message}</p>
                     </fieldset>
+                  <fieldset className="col-12 ">
+                      <label htmlFor="Email-input" className="form-label ">
+                        Correo
+                      </label>
+                      <input
+                        type="email"
+                        id="Email-input"
+                        className="form-control"
+                        {...register("correo", {
+                          required: "Este campo es requerido",
+                        })}
+                        required
+                      />
+                      <p className="text-danger">{errors.correo?.message}</p>
+                    </fieldset>
+
+                    <fieldset className="col-12">
+                      <label htmlFor="password-input" className="form-label ">
+                        Contraseña
+                      </label>
+                      <input
+                        type="password"
+                        id="password-input"
+                        className="form-control"
+                        {...register("contraseña", {
+                          required: "Este campo es requerido",
+                          pattern: {
+                            value: /^.{8,16}$/i,
+                            message:
+                              "La Contraseña debe tener 8 caracteres mínimos",
+                          },
+                        })}
+                        required
+                      />
+                      <p className="text-danger">{errors.contraseña?.message}</p>
+                    </fieldset>
+                    
                   </section>
                   <div className="text-end">
                     <button type="submit" className="btn btn-primary">
