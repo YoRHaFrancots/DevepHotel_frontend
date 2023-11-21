@@ -32,13 +32,13 @@ const RegScreen = () => {
                         type="text"
                         id="Name-input"
                         className="form-control"
-                        {...register("apellidoynombre", {
+                        {...register("name", {
                           required: "Este campo es requerido",
                           min:6
                         })}
                         required
                       />
-                      <p className="text-danger">{errors.apellidoynombre?.message}</p>
+                      <p className="text-danger">{errors.name?.message}</p>
                     </fieldset>
                     <fieldset className="col-12">
                       <label htmlFor="password-input" className="form-label ">
@@ -68,12 +68,12 @@ const RegScreen = () => {
                         type="email"
                         id="Email-input"
                         className="form-control"
-                        {...register("correo", {
+                        {...register("email", {
                           required: "Este campo es requerido",
                         })}
                         required
                       />
-                      <p className="text-danger">{errors.correo?.message}</p>
+                      <p className="text-danger">{errors.email?.message}</p>
                     </fieldset>
 
                     <fieldset className="col-12">
@@ -84,7 +84,7 @@ const RegScreen = () => {
                         type="password"
                         id="password-input"
                         className="form-control"
-                        {...register("contraseña", {
+                        {...register("password", {
                           required: "Este campo es requerido",
                           pattern: {
                             value: /^.{8,16}$/i,
@@ -94,7 +94,7 @@ const RegScreen = () => {
                         })}
                         required
                       />
-                      <p className="text-danger">{errors.contraseña?.message}</p>
+                      <p className="text-danger">{errors.password?.message}</p>
                     </fieldset>
                     
                   </section>
