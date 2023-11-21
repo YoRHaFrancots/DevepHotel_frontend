@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { usuarioAdd } from "../api/usuariosApi";
+
 
 const RegScreen = () => {
+  const [reg,setReg] = useState(false)
   const {
     register,
     handleSubmit,
@@ -9,7 +12,10 @@ const RegScreen = () => {
     formState: { errors },
   } = useForm();
   const registrarse = async (data) => {
-    console.log(data);
+    console.log(data)
+    await usuarioAdd(data);
+    reset();
+    setReg(true)
   };
   return (
     <div className="bg-register">
@@ -18,7 +24,7 @@ const RegScreen = () => {
           <div className="col-12 col-md-6 offset-md-3">
             <div className="card">
               <div className="card-body">
-                <form onSubmit={handleSubmit(registrarse)}>
+                <form noValidate onSubmit={handleSubmit(registrarse)}>
                   <h1>Registrarse</h1>
                   <section className="row">
                   <fieldset className="col-12 ">
@@ -29,13 +35,37 @@ const RegScreen = () => {
                         type="text"
                         id="Name-input"
                         className="form-control"
-                        {...register("nombre", {
+                        {...register("name", {
                           required: "Este campo es requerido",
-                          min:6
+                          pattern: {
+                            value: /^.{6,20}$/i,
+                            message:
+                              "El nombre debe tener 6 caracteres de minimo",
+                          }
                         })}
                         required
                       />
-                      <p className="text-danger">{errors.nombre?.message}</p>
+                      <p className="text-danger">{errors.name?.message}</p>
+                    </fieldset>
+                    <fieldset className="col-12">
+                      <label htmlFor="password-input" className="form-label ">
+                        DNI
+                      </label>
+                      <input
+                        type="number"
+                        id="number-input"
+                        className="form-control"
+                        {...register("dni", {
+                          required: "Este campo es requerido",
+                          pattern: {
+                            value: /^[\d]{1,3}\.?[\d]{3,3}\.?[\d]{3,3}$/,
+                            message:
+                              "Ingresa un dni valido",
+                          },
+                        })}
+                        required
+                      />
+                      <p className="text-danger">{errors.dni?.message}</p>
                     </fieldset>
                   <fieldset className="col-12 ">
                       <label htmlFor="Email-input" className="form-label ">
@@ -47,6 +77,10 @@ const RegScreen = () => {
                         className="form-control"
                         {...register("email", {
                           required: "Este campo es requerido",
+                          pattern:{
+                            value:/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
+                            message:"Ingresa un email valido"
+                          }
                         })}
                         required
                       />
@@ -66,39 +100,21 @@ const RegScreen = () => {
                           pattern: {
                             value: /^.{8,16}$/i,
                             message:
-                              "La Contraseña debe tener 8 caracteres mínimos",
+                              "La Contraseña debe tener 8 caracteres mínimos y 16 maximos",
                           },
                         })}
                         required
                       />
                       <p className="text-danger">{errors.password?.message}</p>
                     </fieldset>
-                    <fieldset className="col-12">
-                      <label htmlFor="password-input" className="form-label ">
-                        DNI
-                      </label>
-                      <input
-                        type="number"
-                        id="number-input"
-                        className="form-control"
-                        {...register("dni", {
-                          required: "Este campo es requerido",
-                          pattern: {
-                            value: /^.{8,8}$/i,
-                            message:
-                              "El dni debe tener 8 caracteres",
-                          },
-                        })}
-                        required
-                      />
-                      <p className="text-danger">{errors.dni?.message}</p>
-                    </fieldset>
+                    
                   </section>
                   <div className="text-end">
                     <button type="submit" className="btn btn-primary">
                       Registrarse
                     </button>
                   </div>
+                  {reg &&(<p className="text-primary">Registrado!</p>)}
                 </form>
               </div>
             </div>
