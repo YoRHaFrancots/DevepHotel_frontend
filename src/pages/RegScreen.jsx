@@ -21,7 +21,7 @@ const RegScreen = () => {
           <div className="col-12 col-md-6 offset-md-3">
             <div className="card">
               <div className="card-body">
-                <form onSubmit={handleSubmit(registrarse)}>
+                <form noValidate onSubmit={handleSubmit(registrarse)}>
                   <h1>Registrarse</h1>
                   <section className="row">
                   <fieldset className="col-12 ">
@@ -34,7 +34,11 @@ const RegScreen = () => {
                         className="form-control"
                         {...register("name", {
                           required: "Este campo es requerido",
-                          min:6
+                          pattern: {
+                            value: /^.{6}$/i,
+                            message:
+                              "El nombre debe tener 6 caracteres de minimo",
+                          }
                         })}
                         required
                       />
@@ -51,9 +55,9 @@ const RegScreen = () => {
                         {...register("dni", {
                           required: "Este campo es requerido",
                           pattern: {
-                            value: /^.{8,8}$/i,
+                            value: /^[\d]{1,3}\.?[\d]{3,3}\.?[\d]{3,3}$/,
                             message:
-                              "El dni debe tener 8 caracteres",
+                              "Ingresa un dni valido",
                           },
                         })}
                         required
@@ -70,6 +74,10 @@ const RegScreen = () => {
                         className="form-control"
                         {...register("email", {
                           required: "Este campo es requerido",
+                          pattern:{
+                            value:/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
+                            message:"Ingresa un email valido"
+                          }
                         })}
                         required
                       />
@@ -89,7 +97,7 @@ const RegScreen = () => {
                           pattern: {
                             value: /^.{8,16}$/i,
                             message:
-                              "La Contraseña debe tener 8 caracteres mínimos",
+                              "La Contraseña debe tener 8 caracteres mínimos y 16 maximos",
                           },
                         })}
                         required
