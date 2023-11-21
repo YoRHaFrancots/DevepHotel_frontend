@@ -3,7 +3,9 @@ import { useForm, Controller } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
 const FormularioDisponibilidad = () => {
+
   const navigate = useNavigate();
+
   const {
     handleSubmit,
     control,
@@ -112,6 +114,7 @@ const FormularioDisponibilidad = () => {
           )}
         />
       </div>
+
       <div className="d-flex justify-content-center mt-2">
         <button className="mt-2 rounded" type="submit">
           Consultar Disponibilidad
