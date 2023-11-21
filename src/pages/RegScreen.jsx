@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { usuarioAdd } from "../api/usuariosApi";
 
+
 const RegScreen = () => {
+  const [reg,setReg] = useState(false)
   const {
     register,
     handleSubmit,
@@ -13,6 +15,7 @@ const RegScreen = () => {
     console.log(data)
     await usuarioAdd(data);
     reset();
+    setReg(true)
   };
   return (
     <div className="bg-register">
@@ -35,7 +38,7 @@ const RegScreen = () => {
                         {...register("name", {
                           required: "Este campo es requerido",
                           pattern: {
-                            value: /^.{6}$/i,
+                            value: /^.{6,20}$/i,
                             message:
                               "El nombre debe tener 6 caracteres de minimo",
                           }
@@ -111,6 +114,7 @@ const RegScreen = () => {
                       Registrarse
                     </button>
                   </div>
+                  {reg &&(<p className="text-primary">Registrado!</p>)}
                 </form>
               </div>
             </div>
