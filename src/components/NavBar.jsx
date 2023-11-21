@@ -1,5 +1,5 @@
 import React from "react";
-import logoDevepHotel from "../assets/imgs/logoDevepHotel.png";
+import logoDevepHotelSinFondo from "../assets/imgs/logoDevepHotelSinFondo.png";
 import "../css/index.css";
 import "../css/paginaInicio.css";
 import "../css/paginaElHotel.css";
@@ -21,7 +21,7 @@ const NavBar = ({ modoOscuro, cambiarModo }) => {
                   ? "logo-DevepHotelNavbar_modoOscuro"
                   : "logo-DevepHotelNavbar"
               }`}
-              src={logoDevepHotel}
+              src={logoDevepHotelSinFondo}
               alt="logo hotel"
             />
           </Link>
@@ -39,34 +39,43 @@ const NavBar = ({ modoOscuro, cambiarModo }) => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <NavLink className="nav-link active" aria-current="page" to="/">
+                <NavLink
+                  activeClassName="active fw-bold"
+                  aria-current="page"
+                  to="/"
+                  exact={true}
+                  className="nav-link"
+                >
                   Inicio
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/hotel">
+                <NavLink
+                  activeClassName="active"
+                  to="/hotel"
+                  exact={true}
+                  className="nav-link"
+                >
                   El hotel
                 </NavLink>
               </li>
-              {/* <li className="nav-item">
-                <NavLink className="nav-link " aria-current="page" to="/about">
-                  Conócenos
-                </NavLink>
-              </li> */}
               <li className="nav-item">
                 <NavLink
-                  className="nav-link "
+                  activeClassName="active"
                   aria-current="page"
                   to="/gallery"
+                  exact={true}
+                  className="nav-link"
                 >
                   Galería
                 </NavLink>
               </li>
               <li className="nav-item">
                 <NavLink
-                  className="nav-link "
-                  aria-current="page"
+                  activeClassName="active"
                   to="/contact"
+                  exact={true}
+                  className="nav-link"
                 >
                   Contacto
                 </NavLink>
