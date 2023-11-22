@@ -3,6 +3,7 @@ import logoDevepHotel from "../assets/imgs/logoDevepHotel.png";
 import "../css/index.css";
 import "../css/paginaInicio.css";
 import { NavLink, Link } from "react-router-dom";
+import AdminLoginForm from "./AdminLoginForm";
 
 const NavBar = ({ modoOscuro, cambiarModo }) => {
   return (
@@ -12,6 +13,7 @@ const NavBar = ({ modoOscuro, cambiarModo }) => {
           modoOscuro ? "bg-dark navbar-dark" : "bg-body-tertiary"
         }`}
       >
+
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
             <img
@@ -95,17 +97,18 @@ const NavBar = ({ modoOscuro, cambiarModo }) => {
             >
               Inicio Sesión
             </button>
-            <button
+            {<button
               className={
                 modoOscuro
                   ? "btn btn-secondary m-2 fw-bold"
                   : "btn btn-info m-2 fw-bold"
               }
-            >                <NavLink className="nav-link " aria-current="page" to="/admin/login">
+            > 
+                  <NavLink className="nav-link " aria-current="page" to="/admin/login">
             Inicio Hotel
           </NavLink>
               
-            </button>
+            </button>}
           </div>
         </div>
       </nav>
