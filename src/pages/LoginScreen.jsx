@@ -1,9 +1,16 @@
 import React from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import "../css/loginregister.css";
+import { login } from "../api/authApi"
+import { useNavigate } from "react-router-dom"
 
 const LoginScreen = ({ modoOscuro }) => {
+  const navigate = useNavigate();
+
+  const [loading, setLoading] = useState(false);
+  const [loginUser, setLoginUser] = useState(null);
   const {
     register,
     handleSubmit,
@@ -11,7 +18,17 @@ const LoginScreen = ({ modoOscuro }) => {
     formState: { errors },
   } = useForm();
   const inicioSesion = async (data) => {
-    console.log(data);
+    setLoading(true);
+    const respuesta = await login(data);
+    console.log(respuesta);
+    setLoginUser(respuesta);
+    reset();
+    setLoading(false);
+
+    if (respuesta?.token) {
+      localStorage.setItem("token", JSON.stringify(respuesta.token));
+      navigate("/");
+    }
   };
   return (
     <div className="bg-login">
@@ -47,6 +64,7 @@ const LoginScreen = ({ modoOscuro }) => {
                           required: "Este campo es requerido",
                         })}
                         required
+                        disabled={loading ? true : false}
                       />
                       <p className="text-danger">{errors.email?.message}</p>
                     </fieldset>
@@ -73,12 +91,15 @@ const LoginScreen = ({ modoOscuro }) => {
                           },
                         })}
                         required
+                        disabled={loading ? true : false}
                       />
                       <p className="text-danger">{errors.password?.message}</p>
                     </fieldset>
                   </section>
                   <div className="text-end">
-                    <button type="submit" className="btn btn-primary">
+                    <button type="submit" className="btn btn-primary"
+                
+                    disabled={loading ? true : false}>
                       Iniciar
                     </button>
                   </div>
@@ -91,6 +112,26 @@ const LoginScreen = ({ modoOscuro }) => {
           </div>
         </div>
       </div>
+      {loginUser?.msg && (
+        <div className="row mt-3">
+          <div className="col">
+            <div className="alert alert-danger" role="alert">
+              {loginUser.msg}
+            </div>
+          </div>
+        </div>
+      )}
+      {loginUser?.errors && (
+        <div className="row mt-3">
+          {loginUser.errors.map((error, index) => (
+            <div className="col" key={index}>
+              <div className="alert alert-danger" role="alert">
+                {error.msg}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
