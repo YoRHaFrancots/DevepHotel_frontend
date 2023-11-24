@@ -1,11 +1,24 @@
 import React from "react";
+import {useState, useEffect} from "react"
 import logoDevepHotelSinFondo from "../assets/imgs/logoDevepHotelSinFondo.png";
 import "../css/index.css";
 import "../css/paginaInicio.css";
 import "../css/paginaElHotel.css";
 import { NavLink, Link } from "react-router-dom";
 
+
+
+
+
+
 const NavBar = ({ modoOscuro, cambiarModo }) => {
+
+
+ 
+  const token = JSON.parse(localStorage.getItem("token")) || null
+ 
+
+  
   return (
     <div className="sticky-top">
       <nav
@@ -91,8 +104,15 @@ const NavBar = ({ modoOscuro, cambiarModo }) => {
                 onChange={cambiarModo}
               />
             </div>
-            <Link to="/login">
+            {
+              token ? (<button className={
+                
+                modoOscuro
+                  ? "btn btn-secondary m-2 fw-bold"
+                  : "btn btn-info m-2 fw-bold"
+              } >Cerrar Sesión</button> ) :(<Link to="/login">
               <button
+              
                 className={
                   modoOscuro
                     ? "btn btn-secondary m-2 fw-bold"
@@ -101,7 +121,9 @@ const NavBar = ({ modoOscuro, cambiarModo }) => {
               >
                 Inicio Sesión
               </button>
-            </Link>
+            </Link>)
+            }
+           
           </div>
         </div>
       </nav>

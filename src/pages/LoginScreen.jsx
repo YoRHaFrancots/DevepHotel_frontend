@@ -24,10 +24,12 @@ const LoginScreen = ({ modoOscuro }) => {
     setLoginUser(respuesta);
     reset();
     setLoading(false);
+    
 
     if (respuesta?.token) {
       localStorage.setItem("token", JSON.stringify(respuesta.token));
       navigate("/");
+      
     }
   };
   return (

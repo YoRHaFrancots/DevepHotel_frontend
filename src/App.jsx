@@ -9,10 +9,14 @@ import ContactScreen from "./pages/ContactScreen";
 import GalleryScreen from "./pages/GalleryScreen";
 import LoginScreen from "./pages/LoginScreen";
 import HotelScreen from "./pages/HotelScreen";
-import RegScreen from "./pages/RegScreen"
+import RegScreen from "./pages/RegScreen";
+import ProtectedRoutes from "./router/ProtectedRoutes";
+import AdminScreen from "./pages/AdminScreen";
+import RouterPrimary from "./router/RouterPrimary";
 
 function App() {
   const [modoOscuro, setModoOscuro] = useState(false);
+  const [logged,setLogged] = useState(false)
 
   const cambiarModo = () => {
     setModoOscuro(!modoOscuro);
@@ -20,8 +24,16 @@ function App() {
   return (
     <div className={modoOscuro ? "bg-secondary" : ""}>
       <BrowserRouter>
-        <NavBar modoOscuro={modoOscuro} cambiarModo={cambiarModo} />
+        <NavBar modoOscuro={modoOscuro} cambiarModo={cambiarModo} logged={logged} setLogged={setLogged}/>
         <Routes>
+          <Route
+            path="/*"
+            element={
+              <ProtectedRoutes>
+                <RouterPrimary/>
+              </ProtectedRoutes>
+            }
+          ></Route>
           <Route
             path="/"
             element={
@@ -33,7 +45,7 @@ function App() {
           <Route
             path="/login"
             element={
-              <LoginScreen modoOscuro={modoOscuro} cambiarModo={cambiarModo} />
+              <LoginScreen modoOscuro={modoOscuro} cambiarModo={cambiarModo} setLogged={setLogged}/>
             }
           />
           <Route
@@ -42,7 +54,7 @@ function App() {
               <HotelScreen modoOscuro={modoOscuro} cambiarModo={cambiarModo} />
             }
           />
-           <Route path="/register" element={<RegScreen/>} />
+          <Route path="/register" element={<RegScreen />} />
           <Route path="*" element={<Error404 />} />
         </Routes>
         <Footer modoOscuro={modoOscuro} cambiarModo={cambiarModo} />
