@@ -15,8 +15,9 @@ import AdminScreen from "./pages/AdminScreen";
 import RouterPrimary from "./router/RouterPrimary";
 
 function App() {
+  
   const [modoOscuro, setModoOscuro] = useState(false);
-  const [logged,setLogged] = useState(false)
+  
 
   const cambiarModo = () => {
     setModoOscuro(!modoOscuro);
@@ -24,7 +25,7 @@ function App() {
   return (
     <div className={modoOscuro ? "bg-secondary" : ""}>
       <BrowserRouter>
-        <NavBar modoOscuro={modoOscuro} cambiarModo={cambiarModo} logged={logged} setLogged={setLogged}/>
+        <NavBar modoOscuro={modoOscuro} cambiarModo={cambiarModo} />
         <Routes>
           <Route
             path="/*"
@@ -45,7 +46,7 @@ function App() {
           <Route
             path="/login"
             element={
-              <LoginScreen modoOscuro={modoOscuro} cambiarModo={cambiarModo} setLogged={setLogged}/>
+              <LoginScreen modoOscuro={modoOscuro} cambiarModo={cambiarModo} />
             }
           />
           <Route

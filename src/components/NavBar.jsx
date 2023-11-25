@@ -12,12 +12,20 @@ import { NavLink, Link } from "react-router-dom";
 
 
 const NavBar = ({ modoOscuro, cambiarModo }) => {
-
+  useEffect(() => {
+    if (localStorage.getItem("token")){
+    setLogged(true)
+    }
+   }, []);
+  const [logged,setLogged] = useState(false)
+  
+ 
 
  
-  const token = JSON.parse(localStorage.getItem("token")) || null
- 
-
+  const handleLogout = () => {
+    localStorage.removeItem("token")
+    setLogged(false);
+  };
   
   return (
     <div className="sticky-top">
@@ -105,12 +113,12 @@ const NavBar = ({ modoOscuro, cambiarModo }) => {
               />
             </div>
             {
-              token ? (<button className={
+              logged ? (<button className={
                 
                 modoOscuro
                   ? "btn btn-secondary m-2 fw-bold"
                   : "btn btn-info m-2 fw-bold"
-              } >Cerrar Sesión</button> ) :(<Link to="/login">
+              } onClick={handleLogout}>Cerrar Sesión</button> ) :(<Link to="/login">
               <button
               
                 className={

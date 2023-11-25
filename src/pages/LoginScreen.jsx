@@ -1,12 +1,20 @@
 import React from "react";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import "../css/loginregister.css";
 import { login } from "../api/authApi"
 import { useNavigate } from "react-router-dom"
 
+
 const LoginScreen = ({ modoOscuro }) => {
+  useEffect(() => {
+   if (localStorage.getItem("token")){
+    navigate("/")
+    
+   }
+  }, []);
+
   const navigate = useNavigate();
 
   const [loading, setLoading] = useState(false);
@@ -28,7 +36,8 @@ const LoginScreen = ({ modoOscuro }) => {
 
     if (respuesta?.token) {
       localStorage.setItem("token", JSON.stringify(respuesta.token));
-      navigate("/");
+      
+      window.location.reload()
       
     }
   };
