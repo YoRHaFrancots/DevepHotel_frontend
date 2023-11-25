@@ -61,10 +61,10 @@ const NavBar = ({ modoOscuro, cambiarModo }) => {
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <NavLink
-                  activeClassName="active fw-bold"
+                  activeclassname="active fw-bold"
                   aria-current="page"
                   to="/"
-                  exact={true}
+                  
                   className="nav-link"
                 >
                   Inicio
@@ -72,9 +72,9 @@ const NavBar = ({ modoOscuro, cambiarModo }) => {
               </li>
               <li className="nav-item">
                 <NavLink
-                  activeClassName="active"
+                  activeclassname="active"
                   to="/hotel"
-                  exact={true}
+                  
                   className="nav-link"
                 >
                   El hotel
@@ -82,10 +82,10 @@ const NavBar = ({ modoOscuro, cambiarModo }) => {
               </li>
               <li className="nav-item">
                 <NavLink
-                  activeClassName="active"
+                  activeclassname="active"
                   aria-current="page"
                   to="/gallery"
-                  exact={true}
+                  
                   className="nav-link"
                 >
                   Galería
@@ -93,9 +93,9 @@ const NavBar = ({ modoOscuro, cambiarModo }) => {
               </li>
               <li className="nav-item">
                 <NavLink
-                  activeClassName="active"
+                  activeclassname="active"
                   to="/contact"
-                  exact={true}
+                  
                   className="nav-link"
                 >
                   Contacto
