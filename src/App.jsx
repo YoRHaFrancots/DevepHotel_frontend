@@ -17,6 +17,20 @@ import AdminPageScreen from "./pages/AdminPageScreen";
 
 function App() {
   const [modoOscuro, setModoOscuro] = useState(false);
+  const [usuario, setUsuario] = useState(null);
+  const [login, setLogin] = useState(false);
+
+  const saveUser = (data) => {
+    setUsuario(data);
+  };
+
+  const loginUser = () => {
+    setLogin(true);
+  };
+
+  const logoutUser = () => {
+    setLogin(false);
+  };
 
   const cambiarModo = () => {
     setModoOscuro(!modoOscuro);
@@ -24,40 +38,68 @@ function App() {
   return (
     <div className={modoOscuro ? "bg-secondary" : ""}>
       <BrowserRouter>
-        <NavBar modoOscuro={modoOscuro} cambiarModo={cambiarModo} />
+        <NavBar
+          modoOscuro={modoOscuro}
+          cambiarModo={cambiarModo}
+          usuario={usuario}
+          logoutUser={logoutUser}
+          login={login}
+          setLogin={setLogin}
+          setUsuario={setUsuario}
+        />
         <Routes>
           <Route
             path="/*"
             element={
-              <ProtectedRoutes>
-                <RouterPrimary />
+              <ProtectedRoutes login={login}>
+                <RouterPrimary usuario={usuario} />
               </ProtectedRoutes>
             }
           ></Route>
           <Route
             path="/"
             element={
-              <HomeScreen modoOscuro={modoOscuro} cambiarModo={cambiarModo} />
+              <HomeScreen
+                modoOscuro={modoOscuro}
+                cambiarModo={cambiarModo}
+                usuario={usuario}
+              />
             }
           />
-          <Route path="/contact" element={<ContactScreen />} />
-          <Route path="/gallery" element={<GalleryScreen />} />
+          <Route
+            path="/contact"
+            element={<ContactScreen usuario={usuario} />}
+          />
+          <Route
+            path="/gallery"
+            element={<GalleryScreen usuario={usuario} />}
+          />
           <Route
             path="/login"
             element={
-              <LoginScreen modoOscuro={modoOscuro} cambiarModo={cambiarModo} />
+              <LoginScreen
+                modoOscuro={modoOscuro}
+                cambiarModo={cambiarModo}
+                loginUser={loginUser}
+                saveUser={saveUser}
+              />
             }
           />
           <Route
             path="/hotel"
             element={
-              <HotelScreen modoOscuro={modoOscuro} cambiarModo={cambiarModo} />
+              <HotelScreen
+                modoOscuro={modoOscuro}
+                cambiarModo={cambiarModo}
+                usuario={usuario}
+              />
             }
           />
           <Route path="/register" element={<RegScreen />} />
-          <Route path="*" element={<Error404 />} />
-          <Route path="/register" element={<RegScreen />} />
-          <Route path="/adminPage" element={<AdminPageScreen />} />
+          <Route
+            path="/adminPage"
+            element={<AdminPageScreen usuario={usuario} />}
+          />
           <Route
             path="*"
             element={
