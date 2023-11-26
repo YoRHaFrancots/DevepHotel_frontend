@@ -147,6 +147,9 @@ const AdminUsuarioScreen = () => {
                 <th scope="col" className="text-center">
                   Estado
                 </th>
+                <th scope="col" className="text-center">
+                  Acciones
+                </th>
               </tr>
             </thead>
             <tbody>
