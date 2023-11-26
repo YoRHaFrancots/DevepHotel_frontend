@@ -9,7 +9,7 @@ import ContactScreen from "./pages/ContactScreen";
 import GalleryScreen from "./pages/GalleryScreen";
 import LoginScreen from "./pages/LoginScreen";
 import HotelScreen from "./pages/HotelScreen";
-import RegScreen from "./pages/RegScreen"
+import RegScreen from "./pages/RegScreen";
 
 function App() {
   const [modoOscuro, setModoOscuro] = useState(false);
@@ -42,7 +42,12 @@ function App() {
               <HotelScreen modoOscuro={modoOscuro} cambiarModo={cambiarModo} />
             }
           />
-           <Route path="/register" element={<RegScreen/>} />
+          <Route
+            path="/register"
+            element={
+              <RegScreen modoOscuro={modoOscuro} cambiarModo={cambiarModo} />
+            }
+          />
           <Route path="*" element={<Error404 />} />
         </Routes>
         <Footer modoOscuro={modoOscuro} cambiarModo={cambiarModo} />
