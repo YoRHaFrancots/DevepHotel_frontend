@@ -35,9 +35,9 @@ export const getUsersWithoutStatus = async () => {
   }
 };
 
-export const getUsuarioById = async (dni) => {
+export const getUsuarioById = async (uid) => {
   try {
-    const resp = await fetch(url + "/" + dni, {
+    const resp = await fetch(url + "/" + uid, {
       method: "GET",
       headers: {
         "Content-type": "application/json; charset=UTF-8",
@@ -72,9 +72,9 @@ export const registro = async (data) => {
   }
 };
 
-export const editUsuarioById = async (dni, data) => {
+export const editUsuarioById = async (uid, data) => {
   try {
-    const resp = await fetch(url + "/" + dni, {
+    const resp = await fetch(url + "/" + uid, {
       method: "PUT",
       body: JSON.stringify(data),
       headers: {
@@ -91,9 +91,9 @@ export const editUsuarioById = async (dni, data) => {
   }
 };
 
-export const deleteUsuarioById = async (dni) => {
+export const deleteUsuarioById = async (uid) => {
   try {
-    const resp = await fetch(url + "/" + dni, {
+    const resp = await fetch(url + "/" + uid, {
       method: "DELETE",
       headers: {
         "Content-type": "application/json; charset=UTF-8",

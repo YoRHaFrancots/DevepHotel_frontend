@@ -114,13 +114,13 @@ const NavBar = ({
                   </a>
                   <ul className="dropdown-menu navbar-custom">
                     <li className="dropdown-item hover-custom">
-                      <NavLink className="nav-link" to="/admin/users">
+                      <NavLink className="nav-link" to="/admin/usuarios">
                         <i className="fa fa-user me-1" aria-hidden="true"></i>
                         Usuarios
                       </NavLink>
                     </li>
                     <li className="dropdown-item hover-custom">
-                      <NavLink className="nav-link" to="/admin/menus">
+                      <NavLink className="nav-link" to="/admin/habitaciones">
                         <i
                           className="fa fa-cutlery me-1"
                           aria-hidden="true"
@@ -129,7 +129,7 @@ const NavBar = ({
                       </NavLink>
                     </li>
                     <li className="dropdown-item hover-custom">
-                      <NavLink className="nav-link" to="/admin/orders">
+                      <NavLink className="nav-link" to="/admin/reservas">
                         <i className="fa fa-truck me-1" aria-hidden="true"></i>
                         Reservas
                       </NavLink>

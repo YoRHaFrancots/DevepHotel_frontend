@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import Modal from "react-bootstrap/Modal";
 
-const EditarModalUsuario = ({ show, handleClose, dni }) => {
+const EditarModalUsuario = ({ show, handleClose, uid }) => {
   const MySwal = withReactContent(Swal);
 
   const [usuario, setUsuario] = useState(null);
@@ -14,7 +14,7 @@ const EditarModalUsuario = ({ show, handleClose, dni }) => {
   }, []);
 
   const findUserData = async () => {
-    const { usuario } = await getUsuarioById(dni);
+    const { usuario } = await getUsuarioById(uid);
     setUsuario(usuario);
   };
 
@@ -27,7 +27,7 @@ const EditarModalUsuario = ({ show, handleClose, dni }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await editUsuarioById(dni, usuario);
+    await editUsuarioById(uid, usuario);
     MySwal.fire("Usuario actualizado correctamente.", "", "success");
     handleClose();
   };

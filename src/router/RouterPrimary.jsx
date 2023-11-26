@@ -1,11 +1,11 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 
-import AdminScreen from "../pages/AdminScreen";
+import AdminPageScreen from "../pages/AdminPageScreen";
 const RouterPrimary = ({ usuario }) => {
   return (
     <Routes>
-      <Route path="/admin" element={<AdminScreen usuario={usuario} />} />
+      <Route path="/admin" element={<AdminPageScreen usuario={usuario} />} />
     </Routes>
   );
 };
