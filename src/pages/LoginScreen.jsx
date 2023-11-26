@@ -18,7 +18,7 @@ const LoginScreen = ({ modoOscuro }) => {
       <div className="container">
         <div className="row vh-100 d-flex align-items-center">
           <div className="col-12 col-md-6 offset-md-3">
-            <div className={` ${modoOscuro ? "card bg-dark" : "card "}`}>
+            <div className={` ${modoOscuro ? "card bg-secondary" : "card "}`}>
               <div className="card-body">
                 <form
                   onSubmit={handleSubmit(inicioSesion)}
