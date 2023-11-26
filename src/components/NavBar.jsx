@@ -64,7 +64,7 @@ const NavBar = ({ modoOscuro, cambiarModo }) => {
                   activeclassname="active fw-bold"
                   aria-current="page"
                   to="/"
-                  
+
                   className="nav-link"
                 >
                   Inicio
@@ -74,7 +74,7 @@ const NavBar = ({ modoOscuro, cambiarModo }) => {
                 <NavLink
                   activeclassname="active"
                   to="/hotel"
-                  
+
                   className="nav-link"
                 >
                   El hotel
@@ -85,7 +85,7 @@ const NavBar = ({ modoOscuro, cambiarModo }) => {
                   activeclassname="active"
                   aria-current="page"
                   to="/gallery"
-                  
+
                   className="nav-link"
                 >
                   Galería
@@ -95,7 +95,7 @@ const NavBar = ({ modoOscuro, cambiarModo }) => {
                 <NavLink
                   activeclassname="active"
                   to="/contact"
-                  
+
                   className="nav-link"
                 >
                   Contacto
