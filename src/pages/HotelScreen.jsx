@@ -5,7 +5,7 @@ import imgVistaVentana from "../assets/imgs/imgVistaVentana.avif";
 import imgHorreoAsturias from "../assets/imgs/imgHorreoAsturias.jpg";
 import imgOrdenadorEnBosque from "../assets/imgs/imgOrdenadorEnBosque.jpg";
 
-const HotelScreen = ({ modoOscuro }) => {
+const HotelScreen = ({ modoOscuro, usuario }) => {
   return (
     <div>
       <div>

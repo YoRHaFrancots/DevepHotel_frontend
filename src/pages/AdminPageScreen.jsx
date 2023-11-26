@@ -1,6 +1,6 @@
 import React from "react";
 
-const AdminPageScreen = () => {
+const AdminPageScreen = ({ usuario }) => {
   return <div>AdminPageScreen</div>;
 };
 

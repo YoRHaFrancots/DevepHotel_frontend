@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
-const AdminScreen = () => {
-  return (
-    <div>AdminScreen</div>
-  )
-}
+const AdminScreen = ({ usuario }) => {
+  return <div>AdminScreen</div>;
+};
 
-export default AdminScreen
+export default AdminScreen;
