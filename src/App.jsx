@@ -10,6 +10,9 @@ import GalleryScreen from "./pages/GalleryScreen";
 import LoginScreen from "./pages/LoginScreen";
 import HotelScreen from "./pages/HotelScreen";
 import RegScreen from "./pages/RegScreen";
+import ProtectedRoutes from "./router/ProtectedRoutes";
+import AdminScreen from "./pages/AdminScreen";
+import RouterPrimary from "./router/RouterPrimary";
 import AdminPageScreen from "./pages/AdminPageScreen";
 
 function App() {
@@ -23,6 +26,14 @@ function App() {
       <BrowserRouter>
         <NavBar modoOscuro={modoOscuro} cambiarModo={cambiarModo} />
         <Routes>
+          <Route
+            path="/*"
+            element={
+              <ProtectedRoutes>
+                <RouterPrimary />
+              </ProtectedRoutes>
+            }
+          ></Route>
           <Route
             path="/"
             element={
@@ -43,6 +54,8 @@ function App() {
               <HotelScreen modoOscuro={modoOscuro} cambiarModo={cambiarModo} />
             }
           />
+          <Route path="/register" element={<RegScreen />} />
+          <Route path="*" element={<Error404 />} />
           <Route path="/register" element={<RegScreen />} />
           <Route path="/adminPage" element={<AdminPageScreen />} />
           <Route

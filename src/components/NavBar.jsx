@@ -1,11 +1,32 @@
 import React from "react";
+import {useState, useEffect} from "react"
 import logoDevepHotelSinFondo from "../assets/imgs/logoDevepHotelSinFondo.png";
 import "../css/index.css";
 import "../css/paginaInicio.css";
 import "../css/paginaElHotel.css";
 import { NavLink, Link } from "react-router-dom";
 
+
+
+
+
+
 const NavBar = ({ modoOscuro, cambiarModo }) => {
+  useEffect(() => {
+    if (localStorage.getItem("token")){
+    setLogged(true)
+    }
+   }, []);
+  const [logged,setLogged] = useState(false)
+  
+ 
+
+ 
+  const handleLogout = () => {
+    localStorage.removeItem("token")
+    setLogged(false);
+  };
+  
   return (
     <div className="sticky-top">
       <nav
@@ -43,6 +64,7 @@ const NavBar = ({ modoOscuro, cambiarModo }) => {
                   activeclassname="active fw-bold"
                   aria-current="page"
                   to="/"
+
                   className="nav-link"
                 >
                   Inicio
@@ -52,6 +74,7 @@ const NavBar = ({ modoOscuro, cambiarModo }) => {
                 <NavLink
                   activeclassname="active"
                   to="/hotel"
+
                   className="nav-link"
                 >
                   El hotel
@@ -62,6 +85,7 @@ const NavBar = ({ modoOscuro, cambiarModo }) => {
                   activeclassname="active"
                   aria-current="page"
                   to="/gallery"
+
                   className="nav-link"
                 >
                   Galería
@@ -71,6 +95,7 @@ const NavBar = ({ modoOscuro, cambiarModo }) => {
                 <NavLink
                   activeclassname="active"
                   to="/contact"
+
                   className="nav-link"
                 >
                   Contacto
@@ -120,8 +145,15 @@ const NavBar = ({ modoOscuro, cambiarModo }) => {
                 onChange={cambiarModo}
               />
             </div>
-            <Link to="/login">
+            {
+              logged ? (<button className={
+                
+                modoOscuro
+                  ? "btn btn-secondary m-2 fw-bold"
+                  : "btn btn-info m-2 fw-bold"
+              } onClick={handleLogout}>Cerrar Sesión</button> ) :(<Link to="/login">
               <button
+              
                 className={
                   modoOscuro
                     ? "btn btn-secondary m-2 fw-bold"
@@ -130,7 +162,9 @@ const NavBar = ({ modoOscuro, cambiarModo }) => {
               >
                 Inicio Sesión
               </button>
-            </Link>
+            </Link>)
+            }
+           
           </div>
         </div>
       </nav>
