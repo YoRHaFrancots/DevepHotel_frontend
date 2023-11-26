@@ -11,9 +11,12 @@ import LoginScreen from "./pages/LoginScreen";
 import HotelScreen from "./pages/HotelScreen";
 import RegScreen from "./pages/RegScreen";
 import ProtectedRoutes from "./router/ProtectedRoutes";
-import AdminScreen from "./pages/AdminScreen";
 import RouterPrimary from "./router/RouterPrimary";
 import AdminPageScreen from "./pages/AdminPageScreen";
+import AdminProtectedRoutes from "./router/AdminprotectedRoutes";
+import AdminUsuarioScreen from "./pages/AdminUsuarioScreen";
+import AdminHabitacionesScreen from "./pages/AdminHabitacionesScreen";
+import AdminReservasScreen from "./pages/AdminReservasScreen";
 
 function App() {
   const [modoOscuro, setModoOscuro] = useState(false);
@@ -48,14 +51,46 @@ function App() {
           setUsuario={setUsuario}
         />
         <Routes>
-          <Route
+          {/* <Route
             path="/*"
             element={
               <ProtectedRoutes login={login}>
                 <RouterPrimary usuario={usuario} />
               </ProtectedRoutes>
             }
-          ></Route>
+          ></Route> */}
+          {/* <Route
+            path="/admin"
+            element={
+              <AdminProtectedRoutes usuario={usuario}>
+                <AdminPageScreen usuario={usuario} />
+              </AdminProtectedRoutes>
+            }
+          /> */}
+          <Route
+            path="/admin/usuarios"
+            element={
+              <AdminProtectedRoutes usuario={usuario}>
+                <AdminUsuarioScreen usuario={usuario} />
+              </AdminProtectedRoutes>
+            }
+          />
+          <Route
+            path="/admin/habitaciones"
+            element={
+              <AdminProtectedRoutes usuario={usuario}>
+                <AdminHabitacionesScreen usuario={usuario} />
+              </AdminProtectedRoutes>
+            }
+          />
+          <Route
+            path="/admin/reservas"
+            element={
+              <AdminProtectedRoutes usuario={usuario}>
+                <AdminReservasScreen usuario={usuario} />
+              </AdminProtectedRoutes>
+            }
+          />
           <Route
             path="/"
             element={
