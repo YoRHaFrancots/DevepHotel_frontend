@@ -76,6 +76,39 @@ const NavBar = ({ modoOscuro, cambiarModo }) => {
                   Contacto
                 </NavLink>
               </li>
+              {/* {user.role === "ADMIN_ROLE" && ()} */}
+              <li className="nav-item dropdown">
+                <a
+                  className="nav-link dropdown-toggle"
+                  data-bs-toggle="dropdown"
+                  href="#"
+                  role="button"
+                  aria-expanded="false"
+                >
+                  <i className="fa fa-cog me-1" aria-hidden="true"></i>
+                  Admin
+                </a>
+                <ul className="dropdown-menu navbar-custom">
+                  <li className="dropdown-item hover-custom">
+                    <NavLink className="nav-link" to="/admin/users">
+                      <i className="fa fa-user me-1" aria-hidden="true"></i>
+                      Usuarios
+                    </NavLink>
+                  </li>
+                  <li className="dropdown-item hover-custom">
+                    <NavLink className="nav-link" to="/admin/menus">
+                      <i className="fa fa-cutlery me-1" aria-hidden="true"></i>
+                      Habitaciones
+                    </NavLink>
+                  </li>
+                  <li className="dropdown-item hover-custom">
+                    <NavLink className="nav-link" to="/admin/orders">
+                      <i className="fa fa-truck me-1" aria-hidden="true"></i>
+                      Reservas
+                    </NavLink>
+                  </li>
+                </ul>
+              </li>
             </ul>
 
             <div className="form-check form-switch">
