@@ -5,7 +5,7 @@ import imgVistaVentana from "../assets/imgs/imgVistaVentana.avif";
 import imgHorreoAsturias from "../assets/imgs/imgHorreoAsturias.jpg";
 import imgOrdenadorEnBosque from "../assets/imgs/imgOrdenadorEnBosque.jpg";
 
-const HotelScreen = () => {
+const HotelScreen = ({ modoOscuro }) => {
   return (
     <div>
       <div>
@@ -17,9 +17,13 @@ const HotelScreen = () => {
         <div className="TextoImgPricipalElHotel">Conoce nuestra historia</div>
       </div>
       <div className="m-3">
-        <div className="card mb-3 mt-4 bg-">
+        <div
+          className={` ${
+            modoOscuro ? "card mb-3 mt-4 bg-secondary" : "card mb-3 mt-4 "
+          }`}
+        >
           <div className="row g-0">
-            <div className="col-md-4 d-flex d-flex align-items-center justify-content-center">
+            <div className="col-md-4 d-flex align-items-center justify-content-center">
               <img
                 src={imgPueblo}
                 className="img-fluid rounded-2 imgPueblo"
@@ -29,7 +33,11 @@ const HotelScreen = () => {
             <div className="col-md-8 d-flex align-items-center">
               <div className="card-body">
                 <h5 className="card-title">El Sueño Compartido</h5>
-                <p className="card-text mt-2">
+                <p
+                  className={` ${
+                    modoOscuro ? "p_oscuro card-text mt-2" : "card-text mt-2"
+                  }`}
+                >
                   En las serenas tierras de Asturias, cuatro almas apasionadas
                   decidieron fusionarse para dar vida a un sueño compartido:
                   DevepHotel, un refugio rural que combina la rica tradición de
@@ -49,12 +57,20 @@ const HotelScreen = () => {
             </div>
           </div>
         </div>
-        <div className="card mb-3 mt-4">
+        <div
+          className={` ${
+            modoOscuro ? "card mb-3 mt-4 bg-secondary" : "card mb-3 mt-4 "
+          }`}
+        >
           <div className="row g-0">
             <div className="col-md-8 d-flex align-items-center">
               <div className="card-body">
                 <h5 className="card-title">La visionaria y el intrépido</h5>
-                <p className="card-text mt-2">
+                <p
+                  className={` ${
+                    modoOscuro ? "p_oscuro card-text mt-2" : "card-text mt-2"
+                  }`}
+                >
                   Roxana, la visionaria, trajo consigo las costumbres y sabores
                   de generaciones pasadas, asegurándose de que cada rincón del
                   hotel resonara con la esencia de Asturias. Franco, el
@@ -73,7 +89,11 @@ const HotelScreen = () => {
             </div>
           </div>
         </div>
-        <div className="card mb-3 mt-4">
+        <div
+          className={` ${
+            modoOscuro ? "card mb-3 mt-4 bg-secondary" : "card mb-3 mt-4 "
+          }`}
+        >
           <div className="row g-0">
             <div className="col-md-4 d-flex align-items-center justify-content-center">
               <img
@@ -85,7 +105,11 @@ const HotelScreen = () => {
             <div className="col-md-8 d-flex align-items-center">
               <div className="card-body">
                 <h5 className="card-title">La artista y la cuentacuentos</h5>
-                <p className="card-text mt-2">
+                <p
+                  className={` ${
+                    modoOscuro ? "p_oscuro card-text mt-2" : "card-text mt-2"
+                  }`}
+                >
                   Alejandra, la artista sensible, transformó cada pared en una
                   obra maestra que contaba la historia de Asturias con colores y
                   formas. Su creatividad fluía en cada habitación, dando vida a
@@ -98,12 +122,20 @@ const HotelScreen = () => {
             </div>
           </div>
         </div>
-        <div className="card mb-4 mt-4">
+        <div
+          className={` ${
+            modoOscuro ? "card mb-3 mt-4 bg-secondary" : "card mb-3 mt-4 "
+          }`}
+        >
           <div className="row g-0">
             <div className="col-md-8 d-flex align-items-center">
               <div className="card-body mb-4">
                 <h5 className="card-title">DevepHotel, el Testimonio Vivo</h5>
-                <p className="card-text mt-2 mb-4">
+                <p
+                  className={` ${
+                    modoOscuro ? "p_oscuro card-text mt-2" : "card-text mt-2"
+                  }`}
+                >
                   DevepHotel se convirtió en un testimonio vivo del amor y la
                   dedicación de estos cuatro amigos por su tierra. Cada rincón
                   del hotel cuenta la historia de su amistad, sus risas

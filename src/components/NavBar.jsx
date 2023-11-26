@@ -1,10 +1,32 @@
 import React from "react";
-import logoDevepHotel from "../assets/imgs/logoDevepHotel.png";
+import {useState, useEffect} from "react"
+import logoDevepHotelSinFondo from "../assets/imgs/logoDevepHotelSinFondo.png";
 import "../css/index.css";
 import "../css/paginaInicio.css";
+import "../css/paginaElHotel.css";
 import { NavLink, Link } from "react-router-dom";
 
+
+
+
+
+
 const NavBar = ({ modoOscuro, cambiarModo }) => {
+  useEffect(() => {
+    if (localStorage.getItem("token")){
+    setLogged(true)
+    }
+   }, []);
+  const [logged,setLogged] = useState(false)
+  
+ 
+
+ 
+  const handleLogout = () => {
+    localStorage.removeItem("token")
+    setLogged(false);
+  };
+  
   return (
     <div className="sticky-top">
       <nav
@@ -20,7 +42,7 @@ const NavBar = ({ modoOscuro, cambiarModo }) => {
                   ? "logo-DevepHotelNavbar_modoOscuro"
                   : "logo-DevepHotelNavbar"
               }`}
-              src={logoDevepHotel}
+              src={logoDevepHotelSinFondo}
               alt="logo hotel"
             />
           </Link>
@@ -38,34 +60,43 @@ const NavBar = ({ modoOscuro, cambiarModo }) => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <NavLink className="nav-link active" aria-current="page" to="/">
+                <NavLink
+                  activeclassname="active fw-bold"
+                  aria-current="page"
+                  to="/"
+
+                  className="nav-link"
+                >
                   Inicio
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/hotel">
+                <NavLink
+                  activeclassname="active"
+                  to="/hotel"
+
+                  className="nav-link"
+                >
                   El hotel
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link " aria-current="page" to="/about">
-                  Conócenos
-                </NavLink>
-              </li>
-              <li className="nav-item">
                 <NavLink
-                  className="nav-link "
+                  activeclassname="active"
                   aria-current="page"
                   to="/gallery"
+
+                  className="nav-link"
                 >
                   Galería
                 </NavLink>
               </li>
               <li className="nav-item">
                 <NavLink
-                  className="nav-link "
-                  aria-current="page"
+                  activeclassname="active"
                   to="/contact"
+
+                  className="nav-link"
                 >
                   Contacto
                 </NavLink>
@@ -81,6 +112,7 @@ const NavBar = ({ modoOscuro, cambiarModo }) => {
                 onChange={cambiarModo}
               />
             </div>
+<<<<<<< HEAD
 
             <div>
               
@@ -88,13 +120,28 @@ const NavBar = ({ modoOscuro, cambiarModo }) => {
 
             <button
               className={
+=======
+            {
+              logged ? (<button className={
+                
+>>>>>>> 9348486f31c8530697c82014e0a5786d53ee9675
                 modoOscuro
                   ? "btn btn-secondary m-2 fw-bold"
                   : "btn btn-info m-2 fw-bold"
-              }
-            >
-              Inicio Sesión
-            </button>
+              } onClick={handleLogout}>Cerrar Sesión</button> ) :(<Link to="/login">
+              <button
+              
+                className={
+                  modoOscuro
+                    ? "btn btn-secondary m-2 fw-bold"
+                    : "btn btn-info m-2 fw-bold"
+                }
+              >
+                Inicio Sesión
+              </button>
+            </Link>)
+            }
+           
           </div>
         </div>
       </nav>
