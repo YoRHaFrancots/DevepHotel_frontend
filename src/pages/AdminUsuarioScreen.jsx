@@ -133,6 +133,9 @@ const AdminUsuarioScreen = () => {
             <thead className="bg-thead">
               <tr>
                 <th scope="col" className="text-center">
+                  Id
+                </th>
+                <th scope="col" className="text-center">
                   Nombre
                 </th>
                 <th scope="col" className="text-center">
@@ -155,9 +158,10 @@ const AdminUsuarioScreen = () => {
             <tbody>
               {usuarios.map((usuario) => (
                 <tr key={usuario.uid}>
-                  <td className="text-center">{usuario.dni}</td>
+                  <td className="text-center">{usuario.uid}</td>
                   <td className="text-center">{usuario.name}</td>
                   <td className="text-center">{usuario.email}</td>
+                  <td className="text-center">{usuario.dni}</td>
                   <td className="text-center">{usuario.role}</td>
                   <td className="text-center">
                     <button
