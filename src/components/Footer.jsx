@@ -8,9 +8,9 @@ import {
 
 const Footer = ({ modoOscuro }) => {
   return (
-
-    <footer className={`mt-auto ${modoOscuro ? "bg-dark" : " bg-light "}`}>
-
+    <footer
+      className={`footer mt-auto ${modoOscuro ? "bg-dark" : " bg-light "}`}
+    >
       <div className="container text-center mb-2">
         <div className="social-icons">
           <a
@@ -38,11 +38,8 @@ const Footer = ({ modoOscuro }) => {
           >
             <FontAwesomeIcon icon={faInstagram} />
           </a>
-          
         </div>
-        
       </div>
-      
     </footer>
   );
 };
