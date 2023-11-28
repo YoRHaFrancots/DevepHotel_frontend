@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { usuarioAdd } from "../api/usuariosApi";
 
-
 const RegScreen = () => {
-  const [reg,setReg] = useState(false)
+  const [reg, setReg] = useState(false);
   const {
     register,
     handleSubmit,
@@ -12,10 +11,10 @@ const RegScreen = () => {
     formState: { errors },
   } = useForm();
   const registrarse = async (data) => {
-    console.log(data)
+    console.log(data);
     await usuarioAdd(data);
     reset();
-    setReg(true)
+    setReg(true);
   };
   return (
     <div className="bg-register">
@@ -27,9 +26,9 @@ const RegScreen = () => {
                 <form noValidate onSubmit={handleSubmit(registrarse)}>
                   <h1>Registrarse</h1>
                   <section className="row">
-                  <fieldset className="col-12 ">
+                    <fieldset className="col-12 ">
                       <label htmlFor="Name-input" className="form-label ">
-                        Nombre y apellido
+                        Nombre y apellido:
                       </label>
                       <input
                         type="text"
@@ -40,8 +39,8 @@ const RegScreen = () => {
                           pattern: {
                             value: /^.{6,20}$/i,
                             message:
-                              "El nombre debe tener 6 caracteres de minimo",
-                          }
+                              "El nombre debe tener 6 caracteres minimo y 20 como maximo",
+                          },
                         })}
                         required
                       />
@@ -49,7 +48,7 @@ const RegScreen = () => {
                     </fieldset>
                     <fieldset className="col-12">
                       <label htmlFor="password-input" className="form-label ">
-                        DNI
+                        DNI:
                       </label>
                       <input
                         type="number"
@@ -59,17 +58,16 @@ const RegScreen = () => {
                           required: "Este campo es requerido",
                           pattern: {
                             value: /^[\d]{1,3}\.?[\d]{3,3}\.?[\d]{3,3}$/,
-                            message:
-                              "Ingresa un dni valido",
+                            message: "Ingresa un dni valido",
                           },
                         })}
                         required
                       />
                       <p className="text-danger">{errors.dni?.message}</p>
                     </fieldset>
-                  <fieldset className="col-12 ">
+                    <fieldset className="col-12 ">
                       <label htmlFor="Email-input" className="form-label ">
-                        Correo
+                        Correo Electronico:
                       </label>
                       <input
                         type="email"
@@ -77,10 +75,10 @@ const RegScreen = () => {
                         className="form-control"
                         {...register("email", {
                           required: "Este campo es requerido",
-                          pattern:{
-                            value:/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
-                            message:"Ingresa un email valido"
-                          }
+                          pattern: {
+                            value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
+                            message: "Ingresa un email valido",
+                          },
                         })}
                         required
                       />
@@ -89,7 +87,7 @@ const RegScreen = () => {
 
                     <fieldset className="col-12">
                       <label htmlFor="password-input" className="form-label ">
-                        Contraseña
+                        Contraseña:
                       </label>
                       <input
                         type="password"
@@ -107,14 +105,13 @@ const RegScreen = () => {
                       />
                       <p className="text-danger">{errors.password?.message}</p>
                     </fieldset>
-                    
                   </section>
                   <div className="text-end">
                     <button type="submit" className="btn btn-primary">
                       Registrarse
                     </button>
                   </div>
-                  {reg &&(<p className="text-primary">Registrado!</p>)}
+                  {reg && <p className="text-primary">Registrado!</p>}
                 </form>
               </div>
             </div>
