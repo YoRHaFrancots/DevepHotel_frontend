@@ -43,6 +43,14 @@ const ContactScreen = ({ usuario }) => {
                     <input
                       type="text"
                       className="form-control"
+                      {...register("name", {
+                        required: "Este campo es requerido",
+                        pattern: {
+                          value: /^.{6,20}$/i,
+                          message:
+                            "El nombre debe tener 6 caracteres minimo y 20 como maximo",
+                        },
+                      })}
                       id="Nombre"
                       placeholder="Nombre"
                       required
