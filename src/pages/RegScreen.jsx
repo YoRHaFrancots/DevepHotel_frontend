@@ -28,7 +28,7 @@ const RegScreen = () => {
                   <section className="row">
                     <fieldset className="col-12 ">
                       <label htmlFor="Name-input" className="form-label ">
-                        Nombre y apellido
+                        Nombre y apellido:
                       </label>
                       <input
                         type="text"
@@ -39,7 +39,7 @@ const RegScreen = () => {
                           pattern: {
                             value: /^.{6,20}$/i,
                             message:
-                              "El nombre debe tener 6 caracteres de minimo",
+                              "El nombre debe tener 6 caracteres minimo y 20 como maximo",
                           },
                         })}
                         required
@@ -48,7 +48,7 @@ const RegScreen = () => {
                     </fieldset>
                     <fieldset className="col-12">
                       <label htmlFor="password-input" className="form-label ">
-                        dni
+                        DNI:
                       </label>
                       <input
                         type="number"
@@ -67,7 +67,7 @@ const RegScreen = () => {
                     </fieldset>
                     <fieldset className="col-12 ">
                       <label htmlFor="Email-input" className="form-label ">
-                        Correo
+                        Correo Electronico:
                       </label>
                       <input
                         type="email"
@@ -87,7 +87,7 @@ const RegScreen = () => {
 
                     <fieldset className="col-12">
                       <label htmlFor="password-input" className="form-label ">
-                        Contraseña
+                        Contraseña:
                       </label>
                       <input
                         type="password"
