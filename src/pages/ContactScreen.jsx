@@ -66,18 +66,26 @@ const ContactScreen = ({ usuario }) => {
                     <input
                       type="email"
                       className="form-control"
+                      {...register("email", {
+                        required: "Este campo es requerido",
+                        pattern: {
+                          value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
+                          message: "Ingresa un email valido",
+                        },
+                      })}
                       id="exampleFormControlInput1"
                       placeholder="name@example.com"
                       required
                     />
+                     
                   </div>
                   <div className="mb-3">
-                    <label htmlFor="exampleFormControlTextarea1" className="form-label">
+                    <label htmlFor="mensaje" className="form-label">
                       Déjanos tus sugerencias
                     </label>
                     <textarea
                       className="form-control"
-                      id="exampleFormControlTextarea1"
+                      id="mensaje"
                       rows="5"
                       required
                     ></textarea>
