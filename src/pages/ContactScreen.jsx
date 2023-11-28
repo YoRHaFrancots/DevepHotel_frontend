@@ -51,10 +51,12 @@ const ContactScreen = ({ usuario }) => {
                             "El nombre debe tener 6 caracteres minimo y 20 como maximo",
                         },
                       })}
+                      
                       id="Nombre"
                       placeholder="Nombre"
                       required
                     />
+                    <p className="text-danger">{errors.name?.message}</p>
                   </div>
 
                   <div className="mb-3">
