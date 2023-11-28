@@ -77,7 +77,7 @@ const ContactScreen = ({ usuario }) => {
                       placeholder="name@example.com"
                       required
                     />
-                     
+                     <p className="text-danger">{errors.email?.message}</p>
                   </div>
                   <div className="mb-3">
                     <label htmlFor="mensaje" className="form-label">
