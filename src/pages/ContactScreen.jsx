@@ -97,6 +97,7 @@ const ContactScreen = ({ usuario }) => {
                       rows="5"
                       required
                     ></textarea>
+                    <p className="text-danger">{errors.mensaje?.message}</p>
                   </div>
                   <div className="mb-3 d-grid d-md-flex justify-content-md-end">
                     <button className="btn btn-primary">Enviar</button>
