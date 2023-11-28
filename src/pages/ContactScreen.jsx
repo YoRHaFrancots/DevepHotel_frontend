@@ -1,7 +1,22 @@
 import React from "react";
+import { useForm } from "react-hook-form";
+import { useState } from "react";
 
 
 const ContactScreen = ({ usuario }) => {
+  const [send, setSend] = useState(false)
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm()
+  const contacto =  (data) => {
+    
+  
+    reset();
+    setSend(true);
+  }
   return (
     <div className="container">
  <section className="row mt-5">
@@ -20,7 +35,7 @@ const ContactScreen = ({ usuario }) => {
               <div className="card-body">
                 <h1>Mándanos tu consulta o comentario</h1>
                 <p>Déjanos tus datos y tus sugerencias sobre el hotel</p>
-                <form>
+                <form noValidate onSubmit={handleSubmit(contacto)}>
                   <div className="mb-3">
                     <label htmlFor="name" className="form-label">
                       Nombre y apellido
@@ -60,6 +75,7 @@ const ContactScreen = ({ usuario }) => {
                   <div className="mb-3 d-grid d-md-flex justify-content-md-end">
                     <button className="btn btn-primary">Enviar</button>
                   </div>
+                  {send && (<div><p className="text-primary text-center">Enviado!</p></div>)}
                 </form>
               </div>
             </div>
