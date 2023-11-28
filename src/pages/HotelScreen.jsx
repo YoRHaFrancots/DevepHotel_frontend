@@ -149,7 +149,7 @@ const HotelScreen = ({ modoOscuro, usuario }) => {
                 </p>
               </div>
             </div>
-            <div className="col-md-4 d-flex align-items-center justify-content-center">
+            <div className="col-md-4 d-flex align-items-center justify-content-center ">
               <img
                 src={imgOrdenadorEnBosque}
                 className="img-fluid rounded-2 imgPueblo"
@@ -159,6 +159,8 @@ const HotelScreen = ({ modoOscuro, usuario }) => {
           </div>
         </div>
       </div>
+      <div >‎ </div>
+      <div >‎ </div>
     </div>
   );
 };
