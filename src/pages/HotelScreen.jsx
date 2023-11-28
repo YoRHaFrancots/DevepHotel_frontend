@@ -124,7 +124,7 @@ const HotelScreen = ({ modoOscuro, usuario }) => {
         </div>
         <div
           className={` ${
-            modoOscuro ? "card mb-3 mt-4 bg-secondary" : "card mb-3 mt-4 "
+            modoOscuro ? "card  mt-4 mb-4 bg-secondary" : "card mb-4 mt-4 "
           }`}
         >
           <div className="row g-0">
@@ -149,16 +149,23 @@ const HotelScreen = ({ modoOscuro, usuario }) => {
                 </p>
               </div>
             </div>
-            <div className="col-md-4 d-flex align-items-center justify-content-center">
+            <div className="col-md-4 d-flex align-items-center justify-content-center mb-4" >
               <img
                 src={imgOrdenadorEnBosque}
                 className="img-fluid rounded-2 imgPueblo"
                 alt="Imagen odenador antiguo en bosque"
               />
             </div>
+            
           </div>
+         
         </div>
+        
       </div>
+      <div >‎ </div>
+      <div >‎ </div>
+      
+      
     </div>
   );
 };
