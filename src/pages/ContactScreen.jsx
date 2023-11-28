@@ -85,6 +85,14 @@ const ContactScreen = ({ usuario }) => {
                     </label>
                     <textarea
                       className="form-control"
+                      {...register("mensaje", {
+                        required: "Este campo es requerido",
+                        pattern: {
+                          value: /^.{6,200}$/i,
+                          message:
+                            "El nombre debe tener 6 caracteres minimo y 200como maximo",
+                        },
+                      })}
                       id="mensaje"
                       rows="5"
                       required
