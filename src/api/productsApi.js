@@ -1,4 +1,4 @@
-const url = "https://backend-devephotel-dev-xfed.4.us-1.fl0.io/api/productos";
+const url = "https://backend-devephotel-dev-xfed.4.us-1.fl0.io/api/habitaciones"
 const token = JSON.parse(localStorage.getItem("token")) || null;
 
 const productsList = async (pagina) => {
@@ -54,4 +54,9 @@ const productDelete = async (id) => {
   return data;
 };
 
-export { productsList, productAdd, productUpdate, productDelete };
+export { 
+  productsList,
+   productAdd, 
+   productUpdate, 
+   productDelete
+   };
