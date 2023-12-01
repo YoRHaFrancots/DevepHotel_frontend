@@ -14,7 +14,7 @@ import ProtectedRoutes from "./router/ProtectedRoutes";
 import RouterPrimary from "./router/RouterPrimary";
 import AdminPageScreen from "./pages/AdminPageScreen";
 import AdminProtectedRoutes from "./router/AdminprotectedRoutes";
-import AdminUsuarioScreen from "./pages/AdminUsuarioScreen";
+//import AdminUsuarioScreen from "./pages/AdminUsuarioScreen";
 import AdminHabitacionesScreen from "./pages/AdminHabitacionesScreen";
 import AdminReservasScreen from "./pages/AdminReservasScreen";
 
@@ -71,7 +71,7 @@ function App() {
             path="/admin/usuarios"
             element={
               <AdminProtectedRoutes usuario={usuario}>
-                <AdminUsuarioScreen usuario={usuario} />
+{ /*           <AdminUsuarioScreen usuario={usuario} />*/}
               </AdminProtectedRoutes>
             }
           />
