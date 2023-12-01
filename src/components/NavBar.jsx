@@ -112,7 +112,7 @@ const NavBar = ({ modoOscuro, cambiarModo }) => {
                 onChange={cambiarModo}
               />
             </div>
-<<<<<<< HEAD
+{/* <<<<<<< HEAD
 
             <div>
               
@@ -120,11 +120,11 @@ const NavBar = ({ modoOscuro, cambiarModo }) => {
 
             <button
               className={
-=======
-            {
+=======}
+            { */
               logged ? (<button className={
                 
->>>>>>> 9348486f31c8530697c82014e0a5786d53ee9675
+// >>>>>>> 9348486f31c8530697c82014e0a5786d53ee9675
                 modoOscuro
                   ? "btn btn-secondary m-2 fw-bold"
                   : "btn btn-info m-2 fw-bold"

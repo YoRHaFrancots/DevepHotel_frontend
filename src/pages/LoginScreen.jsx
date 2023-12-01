@@ -1,45 +1,61 @@
 import React from "react";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import "../css/loginregister.css";
-import { login } from "../api/authApi"
-import { useNavigate } from "react-router-dom"
+import { login } from "../api/authApi";
+import { useNavigate } from "react-router-dom";
 
-
-const LoginScreen = ({ modoOscuro }) => {
-  useEffect(() => {
-   if (localStorage.getItem("token")){
-    navigate("/")
-    
-   }
-  }, []);
+const LoginScreen = ({ modoOscuro, saveUser, loginUser }) => {
+  // useEffect(() => {
+  //   if (localStorage.getItem("token")) {
+  //     navigate("/");
+  //   }
+  // }, []);
 
   const navigate = useNavigate();
 
+  const [showPassword, setShowPassword] = useState(false);
+
+  const [emailInput, setEmailInput] = useState("");
+  const [passwordInput, setPasswordInput] = useState("");
+  const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [loginUser, setLoginUser] = useState(null);
+  const [error, setError] = useState(null);
+
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
   } = useForm();
+
   const inicioSesion = async (data) => {
     setLoading(true);
     const respuesta = await login(data);
     console.log(respuesta);
-    setLoginUser(respuesta);
+    // setLoginUser(respuesta);
     reset();
     setLoading(false);
-    
 
     if (respuesta?.token) {
       localStorage.setItem("token", JSON.stringify(respuesta.token));
-      
-      window.location.reload()
-      
+      loginUser();
+      const { name, email, role, dni, uid } = respuesta.usuario;
+      saveUser({
+        name,
+        dni,
+        email,
+        role,
+        uid,
+      });
+      navigate("/");
+      // window.location.reload();
+    } else {
+      setError("Email o contraseña incorrectos");
     }
+    setResult(respuesta);
+    setLoading(false);
   };
   return (
     <div className="bg-login">
@@ -108,9 +124,11 @@ const LoginScreen = ({ modoOscuro }) => {
                     </fieldset>
                   </section>
                   <div className="text-end">
-                    <button type="submit" className="btn btn-primary"
-                
-                    disabled={loading ? true : false}>
+                    <button
+                      type="submit"
+                      className="btn btn-primary"
+                      disabled={loading ? true : false}
+                    >
                       Iniciar
                     </button>
                   </div>
