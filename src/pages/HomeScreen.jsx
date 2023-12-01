@@ -2,7 +2,7 @@ import React from "react";
 import imgHotel from "../assets/imgs/principalHotel.jpg";
 import FormularioDisponibilidad from "../components/FormularioDisponibilidad";
 
-const HomeScreen = ({ modoOscuro }) => {
+const HomeScreen = ({ modoOscuro, usuario }) => {
   return (
     <div>
       <img

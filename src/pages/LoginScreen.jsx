@@ -71,7 +71,7 @@ const LoginScreen = ({ modoOscuro, saveUser, loginUser }) => {
                   <h1
                     className={`text-center ${modoOscuro ? "modoOscuro" : ""}`}
                   >
-                    Iniciar sesión
+                    Iniciar Sesión
                   </h1>
                   <section className="row">
                     <fieldset className="col-12 ">
@@ -81,7 +81,7 @@ const LoginScreen = ({ modoOscuro, saveUser, loginUser }) => {
                           modoOscuro ? "modoOscuro" : ""
                         }`}
                       >
-                        Correo
+                        Correo Electronico:
                       </label>
                       <input
                         type="email"
@@ -103,7 +103,7 @@ const LoginScreen = ({ modoOscuro, saveUser, loginUser }) => {
                           modoOscuro ? "modoOscuro" : ""
                         }`}
                       >
-                        Contraseña
+                        Contraseña:
                       </label>
                       <input
                         type="password"
@@ -134,7 +134,7 @@ const LoginScreen = ({ modoOscuro, saveUser, loginUser }) => {
                   </div>
                 </form>
                 <p className={`text-center ${modoOscuro ? "modoOscuro" : ""}`}>
-                  ¿No tiene una cuenta?<Link to="/register"> Crear nuevo</Link>
+                  ¿No tienes una cuenta?<Link to="/register"> Crear una nueva</Link>
                 </p>
               </div>
             </div>

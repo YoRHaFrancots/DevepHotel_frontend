@@ -9,3 +9,4 @@ const AdminProtectedRoutes = ({ children, usuario }) => {
 };
 
 export default AdminProtectedRoutes;
+

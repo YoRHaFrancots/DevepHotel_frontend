@@ -5,7 +5,7 @@ import imgVistaVentana from "../assets/imgs/imgVistaVentana.avif";
 import imgHorreoAsturias from "../assets/imgs/imgHorreoAsturias.jpg";
 import imgOrdenadorEnBosque from "../assets/imgs/imgOrdenadorEnBosque.jpg";
 
-const HotelScreen = ({ modoOscuro }) => {
+const HotelScreen = ({ modoOscuro, usuario }) => {
   return (
     <div>
       <div>
@@ -149,7 +149,7 @@ const HotelScreen = ({ modoOscuro }) => {
                 </p>
               </div>
             </div>
-            <div className="col-md-4 d-flex align-items-center justify-content-center">
+            <div className="col-md-4 d-flex align-items-center justify-content-center ">
               <img
                 src={imgOrdenadorEnBosque}
                 className="img-fluid rounded-2 imgPueblo"
@@ -159,6 +159,8 @@ const HotelScreen = ({ modoOscuro }) => {
           </div>
         </div>
       </div>
+      <div >‎ </div>
+      <div >‎ </div>
     </div>
   );
 };
