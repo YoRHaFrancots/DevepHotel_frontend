@@ -127,7 +127,7 @@ const LoginScreen = ({ modoOscuro, saveUser, loginUser }) => {
                     <button
                       type="submit"
                       className="btn btn-primary"
-                      disabled={loading ? true : false}
+                      // disabled={loading ? true : false}
                     >
                       Iniciar
                     </button>

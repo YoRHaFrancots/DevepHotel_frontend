@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import {
-  getUsuario,
   getUsuarioById,
   editUsuarioById,
   deleteUsuarioById,
@@ -35,13 +34,13 @@ const AdminUsuarioScreen = () => {
   const changeStatus = async (uid) => {
     try {
       const response = await getUsuarioById(uid);
-      const usuario = response.usuario;
+      const usuario = response.user;
       if (usuario.role === "ADMIN_ROLE") {
         MySwal.fire("No se puede bloquear a un administrador", "", "info");
         return;
       } else {
         usuario.status = !usuario.status;
-        const result = await editUsuarioById(uid, usuario);
+        await editUsuarioById(uid, usuario);
         fetchData();
       }
     } catch (e) {
@@ -52,7 +51,8 @@ const AdminUsuarioScreen = () => {
   // Block Order
   const blockUser = async (uid) => {
     const response = await getUsuarioById(uid);
-    if (response.usuario.role === "ADMIN_ROLE") {
+    console.log(response);
+    if (response.user.role === "ADMIN_ROLE") {
       MySwal.fire("No se puede bloquear a un administrador", "", "info");
       return;
     } else {
@@ -170,7 +170,7 @@ const AdminUsuarioScreen = () => {
                       }
                       onClick={() => changeStatus(usuario.uid)}
                     >
-                      {usuario.state ? "Activo" : "Inactivo"}
+                      {usuario.state ? "Activo" : "SUBNORMAL"}
                     </button>
                   </td>
                   <td className="text-center">
@@ -178,10 +178,9 @@ const AdminUsuarioScreen = () => {
                       className="btn"
                       onClick={() => blockUser(usuario.uid)}
                     >
-                      <i
-                        className="fa fa-trash text-danger"
-                        aria-hidden="true"
-                      ></i>
+                      <i className="fa fa-trash text-danger" aria-hidden="true">
+                        h
+                      </i>
                     </button>
                     <button
                       className="btn"

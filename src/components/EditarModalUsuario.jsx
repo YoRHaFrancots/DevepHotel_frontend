@@ -14,8 +14,8 @@ const EditarModalUsuario = ({ show, handleClose, uid }) => {
   }, []);
 
   const findUserData = async () => {
-    const { usuario } = await getUsuarioById(uid);
-    setUsuario(usuario);
+    const { user } = await getUsuarioById(uid);
+    setUsuario(user);
   };
 
   const handleChange = (e) => {

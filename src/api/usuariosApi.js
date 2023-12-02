@@ -3,7 +3,7 @@ const token = JSON.parse(localStorage.getItem("token"));
 
 export const getUsuario = async (page = 0) => {
   try {
-    const resp = await fetch(url, {
+    const resp = await fetch(url + "", {
       method: "GET",
       headers: {
         "Content-type": "application/json; charset=UTF-8",
@@ -24,7 +24,7 @@ export const getUsersWithoutStatus = async () => {
       method: "GET",
       headers: {
         "Content-type": "application/json; charset=UTF-8",
-        "x-token": token.toString(),
+        "x-token": token,
       },
     });
     const data = await resp.json();
@@ -44,6 +44,7 @@ export const getUsuarioById = async (uid) => {
         "x-token": token.toString(),
       },
     });
+    console.log(resp);
     const data = await resp.json();
 
     return data;
@@ -55,7 +56,7 @@ export const getUsuarioById = async (uid) => {
 
 export const registro = async (data) => {
   try {
-    const resp = await fetch(url, {
+    const resp = await fetch(url + "/", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
@@ -73,6 +74,7 @@ export const registro = async (data) => {
 };
 
 export const editUsuarioById = async (uid, data) => {
+  console.log(data);
   try {
     const resp = await fetch(url + "/" + uid, {
       method: "PUT",
@@ -84,6 +86,7 @@ export const editUsuarioById = async (uid, data) => {
     });
 
     const usuario = await resp.json();
+    console.log(usuario);
     return usuario;
   } catch (e) {
     console.log(e);
@@ -110,7 +113,8 @@ export const deleteUsuarioById = async (uid) => {
 };
 
 const usuarioAdd = async (datos) => {
-  const resp = await fetch(url, {
+  console.log(datos);
+  const resp = await fetch(url + "", {
     method: "POST",
     body: JSON.stringify(datos),
     headers: {
@@ -118,7 +122,7 @@ const usuarioAdd = async (datos) => {
     },
   });
 
-  const data = await resp.json();
+  const data = await resp;
 
   return data;
 };
