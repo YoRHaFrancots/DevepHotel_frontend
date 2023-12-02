@@ -137,6 +137,19 @@ const NavBar = ({
                   </ul>
                 </li>
               )}
+              {usuario?.role === "USER_ROLE" && (
+                <li className="nav-item dropdown">
+                  <a
+                    className="nav-link"
+                    href="#"
+                    role="button"
+                    aria-expanded="false"
+                  >
+                    <i className="fa fa-cog me-1" aria-hidden="true"></i>
+                    Mi panel
+                  </a>
+                </li>
+              )}
             </ul>
 
             <div className="form-check form-switch">
