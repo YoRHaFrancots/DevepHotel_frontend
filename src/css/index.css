@@ -52,3 +52,8 @@
   font-size: 30px;
   color: #48a2d4;
 }
+
+.spinner {
+  display: flex;
+  justify-content: center;
+}

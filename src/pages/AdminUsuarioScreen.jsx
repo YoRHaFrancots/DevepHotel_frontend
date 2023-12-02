@@ -99,8 +99,10 @@ const AdminUsuarioScreen = () => {
       <br />
       {loading == true ? (
         <>
-          <div className="spinner-border custom-spinner" role="state">
-            <span className="visually-hidden">Loading...</span>
+          <div className="spinner">
+            <div className=" spinner-border custom-spinner" role="state">
+              <span className="visually-hidden">Loading...</span>
+            </div>
           </div>
           <br />
           <br />
