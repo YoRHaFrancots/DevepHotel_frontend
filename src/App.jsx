@@ -59,14 +59,14 @@ function App() {
               </ProtectedRoutes>
             }
           ></Route> */}
-          {/* <Route
+          { <Route
             path="/admin"
             element={
               <AdminProtectedRoutes usuario={usuario}>
                 <AdminPageScreen usuario={usuario} />
               </AdminProtectedRoutes>
             }
-          /> */}
+          /> }
           <Route
             path="/admin/usuarios"
             element={

@@ -13,12 +13,14 @@ export const habitacionesList = async () => {
     return data;
   };
 
-  export const hatiacionAdd = async (datos)=>{
+  export const hatiacionAdd = async (datos, authToken)=>{
     const resp = await fetch(url, {
       method: "POST",
       body: JSON.stringify(datos),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
+        "Authorization": `Bearer ${authToken}`
+       
       }
     })
 
@@ -27,12 +29,13 @@ export const habitacionesList = async () => {
     return data;
   };
 
-  export const habitacionUpdate = async (id, datos) => {
+  export const habitacionUpdate = async (id, datos, authToken) => {
     const resp = await fetch(`${url}/${id}`, {
       method: "PUT",
       body:JSON.stringify(datos),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
+        "Authorization": `Bearer ${authToken}`
       },
     });
     
@@ -41,11 +44,12 @@ export const habitacionesList = async () => {
     return data;
   };
 
-  export const habitacionDelete = async (id) => {
+  export const habitacionDelete = async (id, authToken) => {
     const resp = await fetch(`${url}/${id}`, {
       method: "DELETE",
       headers: {
         "Content-type": "application/json; charset=UTF-8",
+        "Authorization": `Bearer ${authToken}`
       },
     });
     
