@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { habitacionesList, hatiacionAdd , habitacionDelete} from "../api/habitacionesApi";
+import { habitacionesList, habitacionAdd , habitacionDelete} from "../api/habitacionesApi";
 import AdminRoomForm from "../components/AdminRoomForm";
 
 const AdminHabitacionesScreen = () => {
@@ -16,17 +16,19 @@ const AdminHabitacionesScreen = () => {
   };
 
   const addHabitacion = async (roomInfo) => {
-    const response = await hatiacionAdd(roomInfo);
+    const response = await habitacionAdd(roomInfo);
     setHabitaciones([...habitaciones, response]);
     fetchData(); 
   };
 
-  const handleDelete = async (id) => {
-    // Aquí llamarías a la función del API para eliminar la habitación
-    // Luego actualizarías el estado para reflejar la habitación eliminada
-    // Por ejemplo:
-    await habitacionDelete(id);
-    setHabitaciones(habitaciones.filter(habitacion => habitacion._id !== id));
+  const borrarHabitacion = async (id) => {
+    const validar = confirm("Está seguro que quiere borrar el producto?")
+    if(validar){
+      const respuesta = await habitacionDelete(id)
+      console.log(respuesta)
+    }
+    // await habitacionDelete(id);
+    // setHabitaciones(habitaciones.filter(habitacion => habitacion._id !== id));
   };
 
   useEffect(() => {
@@ -36,9 +38,7 @@ const AdminHabitacionesScreen = () => {
 
     return (
     <>
-      <br />
-      <br />
-      <br />
+
 
       <AdminRoomForm addHabitacion={addHabitacion}/>
 
@@ -48,30 +48,7 @@ const AdminHabitacionesScreen = () => {
           <div className="spinner-border custom-spinner" role="state">
             <span className="visually-hidden">Loading...</span>
           </div>
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
+
         </>
       ) : (
         <div className="m-5 table responsive container">

@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'; 
-import { hatiacionAdd } from '../api/habitacionesApi'; 
+import { useForm } from "react-hook-form";
+import { habitacionAdd } from '../api/habitacionesApi'; 
 
 const AdminRoomForm = () => {
   const [roomInfo, setRoomInfo] = useState({
-    numRoom: '',
-    typeRoom: '',
-    price: '',
+    numroom: 0,
+    typeroom: '',
+    price: 0,
     description: '',
+    available: false,
     photo: '',
 
   });
@@ -21,7 +23,7 @@ const AdminRoomForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const response = await hatiacionAdd(roomInfo);
+    const response = await habitacionAdd(roomInfo);
     console.log(response);
   };
 

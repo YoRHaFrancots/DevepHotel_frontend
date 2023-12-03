@@ -1,7 +1,9 @@
 const url = "https://backend-devephotel-dev-xfed.4.us-1.fl0.io/api/habitaciones"
+const token = JSON.parse(localStorage.getItem("token")) || null;
 
-export const habitacionesList = async () => {
-    const resp = await fetch(url,  {
+
+export const habitacionesList = async (pagina) => {
+    const resp = await fetch(url + "?desde=" + pagina,  {
       method: "GET",
       headers: {
         "Content-type": "application/json; charset=UTF-8",
@@ -13,13 +15,13 @@ export const habitacionesList = async () => {
     return data;
   };
 
-  export const hatiacionAdd = async (datos, authToken)=>{
+  export const habitacionAdd = async (datos)=>{
     const resp = await fetch(url, {
       method: "POST",
       body: JSON.stringify(datos),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
-        "Authorization": `Bearer ${authToken}`
+        "x-token":token
        
       }
     })
@@ -29,13 +31,13 @@ export const habitacionesList = async () => {
     return data;
   };
 
-  export const habitacionUpdate = async (id, datos, authToken) => {
-    const resp = await fetch(`${url}/${id}`, {
+  export const habitacionUpdate = async (id, datos) => {
+    const resp = await fetch(url/id, {
       method: "PUT",
       body:JSON.stringify(datos),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
-        "Authorization": `Bearer ${authToken}`
+        "x-token": token
       },
     });
     
@@ -44,12 +46,12 @@ export const habitacionesList = async () => {
     return data;
   };
 
-  export const habitacionDelete = async (id, authToken) => {
-    const resp = await fetch(`${url}/${id}`, {
+  export const habitacionDelete = async (id) => {
+    const resp = await fetch(url + "/" + id,  {
       method: "DELETE",
       headers: {
         "Content-type": "application/json; charset=UTF-8",
-        "Authorization": `Bearer ${authToken}`
+        "x-token":token
       },
     });
     

@@ -51,14 +51,14 @@ function App() {
           setUsuario={setUsuario}
         />
         <Routes>
-          {/* <Route
+          {<Route
             path="/*"
             element={
               <ProtectedRoutes login={login}>
                 <RouterPrimary usuario={usuario} />
               </ProtectedRoutes>
             }
-          ></Route> */}
+          ></Route> }
           { <Route
             path="/admin"
             element={
@@ -71,7 +71,7 @@ function App() {
             path="/admin/usuarios"
             element={
               <AdminProtectedRoutes usuario={usuario}>
-{ /*           <AdminUsuarioScreen usuario={usuario} />*/}
+              {/* <AdminUsuarioScreen usuario={usuario} /> */}
               </AdminProtectedRoutes>
             }
           />
