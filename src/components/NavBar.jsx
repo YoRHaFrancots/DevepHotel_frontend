@@ -125,10 +125,14 @@ const NavBar = ({
                         Usuarios
                       </NavLink>
                     </li>
-                    <li className="dropdown-item hover-custom">
+                    <li
+                      className={`dropdown-item hover-custom ${
+                        modoOscuro ? `bg-dark` : `bg-light`
+                      }`}
+                    >
                       <NavLink className="nav-link" to="/admin/habitaciones">
                         <i
-                          className={`fa fa-cutlery ${
+                          className={`fa fa-bed ${
                             modoOscuro ? `text-light` : `text-dark`
                           }  me-1`}
                           aria-hidden="true"
@@ -136,10 +140,14 @@ const NavBar = ({
                         Habitaciones
                       </NavLink>
                     </li>
-                    <li className="dropdown-item hover-custom">
+                    <li
+                      className={`dropdown-item hover-custom ${
+                        modoOscuro ? `bg-dark` : `bg-light`
+                      }`}
+                    >
                       <NavLink className="nav-link" to="/admin/reservas">
                         <i
-                          className={`fa fa-truck ${
+                          className={`fa fa-bell-concierge ${
                             modoOscuro ? `text-light` : `text-dark`
                           }  me-1`}
                           aria-hidden="true"
