@@ -158,14 +158,17 @@ const HotelScreen = ({ modoOscuro, usuario }) => {
                   alt="Imagen odenador antiguo en bosque"
                 />
               </div>
+
             </div>
           </div>
         </div>
         <div>‎ </div>
         <div>‎ </div>
       </div>
+
       <br />
     </>
+
   );
 };
 
