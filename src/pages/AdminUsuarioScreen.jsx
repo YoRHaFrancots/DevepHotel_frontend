@@ -178,7 +178,7 @@ const AdminUsuarioScreen = ({ modoOscuro }) => {
                       }
                       onClick={() => changeStatus(usuario.uid)}
                     >
-                      {usuario.state ? "Activo" : "SUBNORMAL"}
+                      {usuario.state ? "Activo" : "Inactivo"}
                     </button>
                   </td>
                   <td className="text-center">
