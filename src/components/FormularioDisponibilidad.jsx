@@ -3,7 +3,6 @@ import { useForm, Controller } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
 const FormularioDisponibilidad = () => {
-
   const navigate = useNavigate();
 
   const {
@@ -41,7 +40,6 @@ const FormularioDisponibilidad = () => {
       return;
     }
     // backend de disponibilidad
-    console.log(data);
 
     navigate("/login");
   };

@@ -17,13 +17,6 @@ const NavBar = ({
 }) => {
   const [logged, setLogged] = useState(false);
 
-  // useEffect(() => {
-  //   if (localStorage.getItem("token")) {
-  //     console.log(login);
-  //     console.log(login);
-  //   }
-  // }, []);
-
   const handleLogout = () => {
     localStorage.removeItem("token");
     setLogin(false);
