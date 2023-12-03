@@ -1,4 +1,5 @@
 import React from "react";
+
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import "../css/contact.css";
@@ -107,12 +108,15 @@ const ContactScreen = ({ usuario }) => {
                       )}
                     </form>
                   </div>
+
                 </div>
               </div>
             </div>
           </div>
+
         </section>
       </div>
+
     </div>
   );
 };

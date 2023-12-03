@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import "../css/loginregister.css";
@@ -7,12 +7,6 @@ import { login } from "../api/authApi";
 import { useNavigate } from "react-router-dom";
 
 const LoginScreen = ({ modoOscuro, saveUser, loginUser }) => {
-  // useEffect(() => {
-  //   if (localStorage.getItem("token")) {
-  //     navigate("/");
-  //   }
-  // }, []);
-
   const navigate = useNavigate();
 
   const [showPassword, setShowPassword] = useState(false);
@@ -33,7 +27,7 @@ const LoginScreen = ({ modoOscuro, saveUser, loginUser }) => {
   const inicioSesion = async (data) => {
     setLoading(true);
     const respuesta = await login(data);
-    console.log(respuesta);
+
     // setLoginUser(respuesta);
     reset();
     setLoading(false);
@@ -127,7 +121,7 @@ const LoginScreen = ({ modoOscuro, saveUser, loginUser }) => {
                     <button
                       type="submit"
                       className="btn btn-primary"
-                      disabled={loading ? true : false}
+                      // disabled={loading ? true : false}
                     >
                       Iniciar
                     </button>

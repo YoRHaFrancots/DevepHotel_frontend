@@ -11,7 +11,7 @@ const Footer = ({ modoOscuro }) => {
     <footer
       className={`footer mt-auto ${modoOscuro ? "bg-dark" : " bg-light "}`}
     >
-      <div className="container text-center mb-2">
+      <div className="container text-center my-4">
         <div className="social-icons">
           <a
             href="enlaceFacebook"

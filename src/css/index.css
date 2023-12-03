@@ -4,10 +4,6 @@
   width: 100%;
   text-align: center;
 }
-/* body {
-  margin: 0;
-  overflow: hidden;
-} */
 
 .logo-DevepHotelNavbar {
   width: 150px;
@@ -51,4 +47,9 @@
 .logos_redes {
   font-size: 30px;
   color: #48a2d4;
+}
+
+.spinner {
+  display: flex;
+  justify-content: center;
 }

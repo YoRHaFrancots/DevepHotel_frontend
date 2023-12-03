@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import {
-  getUsuario,
   getUsuarioById,
   editUsuarioById,
   deleteUsuarioById,
@@ -10,8 +9,9 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import "../css/admin.css";
 import EditarModalusuario from "../components/EditarModalUsuario";
+import "@fortawesome/fontawesome-free/css/all.css";
 
-const AdminUsuarioScreen = () => {
+const AdminUsuarioScreen = ({ modoOscuro }) => {
   const [usuarios, setUsuario] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -35,13 +35,14 @@ const AdminUsuarioScreen = () => {
   const changeStatus = async (uid) => {
     try {
       const response = await getUsuarioById(uid);
-      const usuario = response.usuario;
+      const usuario = response.user;
+      console.log(usuario);
       if (usuario.role === "ADMIN_ROLE") {
         MySwal.fire("No se puede bloquear a un administrador", "", "info");
         return;
       } else {
-        usuario.status = !usuario.status;
-        const result = await editUsuarioById(uid, usuario);
+        usuario.state = !usuario.state;
+        await editUsuarioById(uid, usuario);
         fetchData();
       }
     } catch (e) {
@@ -52,7 +53,8 @@ const AdminUsuarioScreen = () => {
   // Block Order
   const blockUser = async (uid) => {
     const response = await getUsuarioById(uid);
-    if (response.usuario.role === "ADMIN_ROLE") {
+    console.log(response);
+    if (response.user.role === "ADMIN_ROLE") {
       MySwal.fire("No se puede bloquear a un administrador", "", "info");
       return;
     } else {
@@ -99,8 +101,10 @@ const AdminUsuarioScreen = () => {
       <br />
       {loading == true ? (
         <>
-          <div className="spinner-border custom-spinner" role="state">
-            <span className="visually-hidden">Loading...</span>
+          <div className="spinner">
+            <div className=" spinner-border custom-spinner" role="state">
+              <span className="visually-hidden">Loading...</span>
+            </div>
           </div>
           <br />
           <br />
@@ -129,7 +133,11 @@ const AdminUsuarioScreen = () => {
         </>
       ) : (
         <div className="m-5 table-responsive">
-          <table className="table table-hover table-striped table-bordered">
+          <table
+            className={`table ${
+              modoOscuro ? "table-dark" : ""
+            } table-hover table-striped table-bordered`}
+          >
             <thead className="bg-thead">
               <tr>
                 <th scope="col" className="text-center">
@@ -202,6 +210,7 @@ const AdminUsuarioScreen = () => {
       {show && (
         <EditarModalusuario show={show} handleClose={handleClose} uid={uid} />
       )}
+      <br />
     </>
   );
 };
