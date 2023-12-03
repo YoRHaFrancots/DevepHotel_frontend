@@ -41,7 +41,7 @@ const FormularioDisponibilidad = () => {
     }
     // backend de disponibilidad
 
-    navigate("/login");
+    navigate("/contact");
   };
 
   return (
