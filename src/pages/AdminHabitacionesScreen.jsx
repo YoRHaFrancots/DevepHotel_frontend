@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { habitacionesList, habitacionAdd , habitacionDelete} from "../api/habitacionesApi";
+import { habitacionesList, habitacionAdd , habitacionUpdate, habitacionDelete} from "../api/habitacionesApi";
 import AdminRoomForm from "../components/AdminRoomForm";
 
 const AdminHabitacionesScreen = () => {
@@ -17,18 +17,17 @@ const AdminHabitacionesScreen = () => {
 
   const addHabitacion = async (roomInfo) => {
     const response = await habitacionAdd(roomInfo);
-    setHabitaciones([...habitaciones, response]);
+    console.log(response)
     fetchData(); 
   };
 
   const borrarHabitacion = async (id) => {
     const validar = confirm("Está seguro que quiere borrar el producto?")
     if(validar){
-      const respuesta = await habitacionDelete(id)
+      const respuesta = await habitacionDelete(id, { available:false})
       console.log(respuesta)
+      fetchData()
     }
-    // await habitacionDelete(id);
-    // setHabitaciones(habitaciones.filter(habitacion => habitacion._id !== id));
   };
 
   useEffect(() => {
@@ -39,10 +38,7 @@ const AdminHabitacionesScreen = () => {
     return (
     <>
 
-
       <AdminRoomForm addHabitacion={addHabitacion}/>
-
-
       {loading == true ? (
         <>
           <div className="spinner-border custom-spinner" role="state">
@@ -60,6 +56,7 @@ const AdminHabitacionesScreen = () => {
                 <th scope="col" className="text-center">Tipo de habitacion</th>
                 <th scope="col" className="text-center">Fecha disponible</th>
                 <th scope="col" className="text-center">Precio</th>
+                <th scope="col" className="text-center">Disponibilidad</th>
                 <th scope="col" className="text-center">Foto</th>
                 
               </tr>
@@ -72,6 +69,7 @@ const AdminHabitacionesScreen = () => {
                   <td className="text-center">{habitacion.typeroom}</td>
                   <td className="text-center">{habitacion.description}</td>
                   <td className="text-center">{habitacion.price}</td>
+                  <td className="text-center">{habitacion.available ? 'Libre' : 'Ocupado'}</td>
                   <td className="text-center">
                         <img src={habitacion.photo} alt="Habitación" style={{width: "100px"}}/>
                   </td>
@@ -79,7 +77,7 @@ const AdminHabitacionesScreen = () => {
                     <button style={{backgroundColor: 'orange'}} onClick={() => handleEdit(habitacion)}>Editar</button>
                   </td>
                   <td className="text-center">
-                    <button style={{backgroundColor: 'red'}} onClick={() => handleDelete(habitacion._id)}>X</button>
+                    <button className="btn btn-danger" onClick={() => borrarHabitacion(habitacion._id)}>X</button>
                   </td>                
                 </tr>
               ))}

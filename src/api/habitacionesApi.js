@@ -32,7 +32,7 @@ export const habitacionesList = async (pagina) => {
   };
 
   export const habitacionUpdate = async (id, datos) => {
-    const resp = await fetch(url/id, {
+    const resp = await fetch(url+'/'+ id, {
       method: "PUT",
       body:JSON.stringify(datos),
       headers: {

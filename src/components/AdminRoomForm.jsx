@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useForm } from "react-hook-form";
 import { habitacionAdd } from '../api/habitacionesApi'; 
 
-const AdminRoomForm = () => {
+const AdminRoomForm = ({addHabitacion}) => {
   const [roomInfo, setRoomInfo] = useState({
     numroom: 0,
     typeroom: '',
@@ -23,8 +23,17 @@ const AdminRoomForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const response = await habitacionAdd(roomInfo);
-    console.log(response);
+    await addHabitacion(roomInfo);
+    setRoomInfo({
+      numroom: 0,
+      typeroom: '',
+      price: 0,
+      description: '',
+      available: true,
+      photo: '',  
+    })
+   ;
+    
   };
 
   return (
@@ -43,7 +52,7 @@ const AdminRoomForm = () => {
             />
           </div>
         ))}
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn btn-primary mt-3">
           Guardar
         </button>
       </form>
