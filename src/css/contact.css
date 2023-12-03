@@ -1,0 +1,3 @@
+.modo-oscuro-iframe {
+  filter: invert(1) hue-rotate(180deg);
+}
