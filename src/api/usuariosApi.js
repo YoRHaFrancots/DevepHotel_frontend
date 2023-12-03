@@ -1,5 +1,5 @@
-// const url = "https://backend-devephotel-dev-xfed.4.us-1.fl0.io/api/usuarios";
-const url = "http://localhost:3000/api/usuarios";
+const url = "https://backend-devephotel-dev-xfed.4.us-1.fl0.io/api/usuarios";
+// const url = "http://localhost:3000/api/usuarios";
 const token = JSON.parse(localStorage.getItem("token"));
 
 export const getUsuario = async (page = 0) => {
