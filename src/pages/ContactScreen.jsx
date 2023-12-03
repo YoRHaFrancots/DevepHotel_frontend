@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import "../css/contact.css";
 
-const ContactScreen = ({ usuario }) => {
+const ContactScreen = ({ modoOscuro, usuario }) => {
   const [send, setSend] = useState(false);
   const {
     register,
@@ -29,6 +29,7 @@ const ContactScreen = ({ usuario }) => {
                     width="100%"
                     height="100%"
                     loading="lazy"
+                    className={`${modoOscuro ? "modo-oscuro-iframe" : ""}`}
                   ></iframe>
                 </div>
                 <div className="col-md-12 col-lg-6">
@@ -108,15 +109,12 @@ const ContactScreen = ({ usuario }) => {
                       )}
                     </form>
                   </div>
-
                 </div>
               </div>
             </div>
           </div>
-
         </section>
       </div>
-
     </div>
   );
 };

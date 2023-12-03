@@ -1,8 +1,9 @@
-
+.modo-oscuro-iframe {
+  filter: invert(1) hue-rotate(180deg);
+}
 
 .bg-contact {
-    background-image: url(../assets/imgs/contact-img.webp);
-    background-size: cover;
-    background-position: top;
-  }
-
+  background-image: url(../assets/imgs/contact-img.webp);
+  background-size: cover;
+  background-position: top;
+}

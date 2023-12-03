@@ -97,8 +97,6 @@ const AdminUsuarioScreen = ({ modoOscuro }) => {
   return (
     <>
       <br />
-      <br />
-      <br />
       {loading == true ? (
         <>
           <div className="spinner">
