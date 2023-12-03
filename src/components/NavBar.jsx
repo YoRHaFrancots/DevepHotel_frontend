@@ -135,7 +135,9 @@ const NavBar = ({
                     <li className="dropdown-item hover-custom">
                       <NavLink className="nav-link" to="/admin/habitaciones">
                         <i
-                          className="fa fa-cutlery me-1"
+                          className={`fa fa-cutlery ${
+                            modoOscuro ? `text-light` : `text-dark`
+                          }  me-1`}
                           aria-hidden="true"
                         ></i>
                         Habitaciones
@@ -143,7 +145,12 @@ const NavBar = ({
                     </li>
                     <li className="dropdown-item hover-custom">
                       <NavLink className="nav-link" to="/admin/reservas">
-                        <i className="fa fa-truck me-1" aria-hidden="true"></i>
+                        <i
+                          className={`fa fa-truck ${
+                            modoOscuro ? `text-light` : `text-dark`
+                          }  me-1`}
+                          aria-hidden="true"
+                        ></i>
                         Reservas
                       </NavLink>
                     </li>
