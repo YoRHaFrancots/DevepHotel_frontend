@@ -9,7 +9,7 @@ const AdminRoomForm = ({addHabitacion}) => {
     typeroom: '',
     price: 0,
     description: '',
-    available: false,
+    available: true,
     photo: '',
 
   });
@@ -23,7 +23,7 @@ const AdminRoomForm = ({addHabitacion}) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    await addHabitacion(roomInfo);
+    await habitacionAdd(roomInfo);
     setRoomInfo({
       numroom: 0,
       typeroom: '',

@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { habitacionesList, habitacionAdd , habitacionUpdate, habitacionDelete} from "../api/habitacionesApi";
+import { habitacionesList, habitacionAdd, habitacionUpdate, habitacionDelete} from "../api/habitacionesApi";
 import AdminRoomForm from "../components/AdminRoomForm";
 
 const AdminHabitacionesScreen = () => {
@@ -16,7 +16,7 @@ const AdminHabitacionesScreen = () => {
   };
 
   const addHabitacion = async (roomInfo) => {
-    const response = await habitacionAdd(roomInfo);
+    await habitacionAdd(roomInfo);
     console.log(response)
     fetchData(); 
   };
@@ -58,7 +58,9 @@ const AdminHabitacionesScreen = () => {
                 <th scope="col" className="text-center">Precio</th>
                 <th scope="col" className="text-center">Disponibilidad</th>
                 <th scope="col" className="text-center">Foto</th>
-                
+                <th scope="col" className="text-center">Editar</th>
+                <th scope="col" className="text-center">Eliminar</th>
+
               </tr>
             </thead>
             <tbody>
