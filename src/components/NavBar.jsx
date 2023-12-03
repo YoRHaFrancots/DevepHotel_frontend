@@ -112,10 +112,23 @@ const NavBar = ({
                     <i className="fa fa-cog me-1" aria-hidden="true"></i>
                     Admin
                   </a>
-                  <ul className="dropdown-menu navbar-custom">
-                    <li className="dropdown-item hover-custom">
+                  <ul
+                    className={`dropdown-menu navbar-custom ${
+                      modoOscuro ? `bg-dark` : `bg-light`
+                    }`}
+                  >
+                    <li
+                      className={`dropdown-item hover-custom ${
+                        modoOscuro ? `bg-dark` : `bg-light`
+                      }`}
+                    >
                       <NavLink className="nav-link" to="/admin/usuarios">
-                        <i className="fa fa-user me-1" aria-hidden="true"></i>
+                        <i
+                          className={`fa fa-user ${
+                            modoOscuro ? `text-light` : `text-dark`
+                          } me-1`}
+                          aria-hidden="true"
+                        ></i>
                         Usuarios
                       </NavLink>
                     </li>

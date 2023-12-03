@@ -9,8 +9,9 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import "../css/admin.css";
 import EditarModalusuario from "../components/EditarModalUsuario";
+import "@fortawesome/fontawesome-free/css/all.css";
 
-const AdminUsuarioScreen = () => {
+const AdminUsuarioScreen = ({ modoOscuro }) => {
   const [usuarios, setUsuario] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -35,11 +36,12 @@ const AdminUsuarioScreen = () => {
     try {
       const response = await getUsuarioById(uid);
       const usuario = response.user;
+      console.log(usuario);
       if (usuario.role === "ADMIN_ROLE") {
         MySwal.fire("No se puede bloquear a un administrador", "", "info");
         return;
       } else {
-        usuario.status = !usuario.status;
+        usuario.state = !usuario.state;
         await editUsuarioById(uid, usuario);
         fetchData();
       }
@@ -131,7 +133,11 @@ const AdminUsuarioScreen = () => {
         </>
       ) : (
         <div className="m-5 table-responsive">
-          <table className="table table-hover table-striped table-bordered">
+          <table
+            className={`table ${
+              modoOscuro ? "table-dark" : ""
+            } table-hover table-striped table-bordered`}
+          >
             <thead className="bg-thead">
               <tr>
                 <th scope="col" className="text-center">
@@ -180,9 +186,10 @@ const AdminUsuarioScreen = () => {
                       className="btn"
                       onClick={() => blockUser(usuario.uid)}
                     >
-                      <i className="fa fa-trash text-danger" aria-hidden="true">
-                        h
-                      </i>
+                      <i
+                        className="fa fa-trash text-danger"
+                        aria-hidden="true"
+                      ></i>
                     </button>
                     <button
                       className="btn"
@@ -203,6 +210,7 @@ const AdminUsuarioScreen = () => {
       {show && (
         <EditarModalusuario show={show} handleClose={handleClose} uid={uid} />
       )}
+      <br />
     </>
   );
 };
