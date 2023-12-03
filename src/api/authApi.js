@@ -1,5 +1,4 @@
 const url = "https://backend-devephotel-dev-xfed.4.us-1.fl0.io/api/auth";
-// const url = "http://localhost:3000/api/auth";
 
 export const login = async (datos) => {
   const res = await fetch(url + "/login", {
