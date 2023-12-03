@@ -34,8 +34,7 @@ const GalleryScreen = ({ usuario }) => {
               <div className="card-body">
               <h5 className="card-title">{`Habitacion ${habitacion.numroom} `}</h5> <span class="badge text-bg-success">{habitacion.price}</span>
               <p className="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
+                {habitacion.descripcion}
               </p>
               <a href="#" className="btn btn-primary">
                 Go somewhere
