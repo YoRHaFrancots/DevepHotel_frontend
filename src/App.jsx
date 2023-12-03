@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import NavBar from "./components/NavBar";
 import "./App.css";
 import Footer from "./components/Footer";
@@ -38,6 +38,12 @@ function App() {
   const cambiarModo = () => {
     setModoOscuro(!modoOscuro);
   };
+
+  useEffect(() => {
+    document.body.classList.remove("app-mode-dark", "app-mode-light");
+    document.body.classList.add(`app-mode-${modoOscuro ? "dark" : "light"}`);
+  }, [modoOscuro]);
+
   return (
     <div className={modoOscuro ? "bg-secondary" : ""}>
       <BrowserRouter>
@@ -71,7 +77,7 @@ function App() {
             path="/admin/usuarios"
             element={
               <AdminProtectedRoutes usuario={usuario}>
-                <AdminUsuarioScreen usuario={usuario} />
+                <AdminUsuarioScreen usuario={usuario} modoOscuro={modoOscuro} />
               </AdminProtectedRoutes>
             }
           />
