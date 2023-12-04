@@ -37,7 +37,8 @@ const AdminRoomForm = ({addHabitacion}) => {
   };
 
   return (
-    <div className="container mt-4">
+    <div className='card row my-4 '>
+    <div className="container mt-4"> 
       <h2 className="mb-4">Agregar Habitación</h2>
       <form onSubmit={handleSubmit}>
         {Object.entries(roomInfo).map(([key, value]) => (
@@ -56,6 +57,7 @@ const AdminRoomForm = ({addHabitacion}) => {
           Guardar
         </button>
       </form>
+    </div>
     </div>
   );
 };

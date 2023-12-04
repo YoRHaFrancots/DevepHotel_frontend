@@ -2,6 +2,8 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { habitacionesList, habitacionAdd, habitacionUpdate, habitacionDelete} from "../api/habitacionesApi";
 import AdminRoomForm from "../components/AdminRoomForm";
+import backgroundImage from '../assets/imgs/principalHotel.jpg';
+
 
 const AdminHabitacionesScreen = () => {
 
@@ -36,7 +38,12 @@ const AdminHabitacionesScreen = () => {
   }, []);
 
     return (
-    <>
+      <div style={{ 
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: 'cover',
+
+      }}>
+        <div className="m-5 table-responsive container">
 
       <AdminRoomForm addHabitacion={addHabitacion}/>
       {loading == true ? (
@@ -87,7 +94,8 @@ const AdminHabitacionesScreen = () => {
           </table>
         </div>
       )}
-    </>
+    </div>
+    </div>
   );
 };
 
