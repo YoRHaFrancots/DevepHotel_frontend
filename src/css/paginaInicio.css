@@ -1,0 +1,60 @@
+.imgHomescreen {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+}
+
+.imgHomescreen_modoOscuro {
+  filter: grayscale(80%);
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+}
+
+.home-screen-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.overlay_homeScreen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-container_homeScreen {
+  background: #48a2d4;
+  filter: opacity(85%);
+  padding: 2%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  text-align: start;
+  max-width: 400px;
+  width: 100%;
+}
+
+.input_formPersonas {
+  width: 50px;
+}
+
+.input_form {
+  justify-content: end;
+}
+
+.textoHomeScreen {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 2;
+  color: #fff;
+  font-size: 210%;
+}

@@ -1,0 +1,13 @@
+.bg-login {
+  background-image: url(../assets/imgs/img-login.webp);
+  background-size: cover;
+}
+.bg-register {
+  background-image: url(../assets/imgs/img-register.webp);
+  background-size: cover;
+  background-position: top;
+}
+
+.modoOscuro {
+  color: white;
+}
