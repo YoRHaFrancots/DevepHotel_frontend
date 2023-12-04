@@ -32,13 +32,14 @@ const GalleryScreen = ({ usuario }) => {
                 <div className="ribbon-text"></div>
               </div>
               <div className="card-body">
-              <h5 className="card-title">{`Habitacion ${habitacion.numroom} `}</h5> <span class="badge text-bg-success">{habitacion.price}</span>
+              <h5 className="card-title">{`Habitacion ${habitacion.numroom} `}</h5> <span class="badge text-bg-success">{`${habitacion.price}$`}</span>
+              <h6>Fecha:</h6>
               <p className="card-text">
-                {habitacion.descripcion}
+                {habitacion.description}
               </p>
-              <a href="#" className="btn btn-primary">
-                Go somewhere
-              </a>
+              <h6>Tipo:</h6>
+              <p className="card-text">{habitacion.typeroom}</p>
+              <button className="btn btn-primary">Reservar</button>
             </div>
             </div>
             
