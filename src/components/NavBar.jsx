@@ -160,7 +160,7 @@ const NavBar = ({
               )}
               {usuario?.role === "USER_ROLE" && (
                 <li className="nav-item dropdown">
-                  <a
+                  <button
                     className="nav-link"
                     href="#"
                     role="button"
@@ -168,7 +168,7 @@ const NavBar = ({
                   >
                     <i className="fa fa-cog me-1" aria-hidden="true"></i>
                     Mi panel
-                  </a>
+                  </button>
                 </li>
               )}
             </ul>
