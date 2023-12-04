@@ -12,7 +12,7 @@ import HotelScreen from "./pages/HotelScreen";
 import RegScreen from "./pages/RegScreen";
 import AdminPageScreen from "./pages/AdminPageScreen";
 import AdminProtectedRoutes from "./router/AdminprotectedRoutes";
-//import AdminUsuarioScreen from "./pages/AdminUsuarioScreen";
+import AdminUsuarioScreen from "./pages/AdminUsuarioScreen";
 import AdminHabitacionesScreen from "./pages/AdminHabitacionesScreen";
 import AdminReservasScreen from "./pages/AdminReservasScreen";
 
@@ -55,14 +55,11 @@ function App() {
           setUsuario={setUsuario}
         />
         <Routes>
-
           <Route
             path="/admin/usuarios"
             element={
               <AdminProtectedRoutes usuario={usuario}>
-
                 <AdminUsuarioScreen usuario={usuario} modoOscuro={modoOscuro} />
-
               </AdminProtectedRoutes>
             }
           />
