@@ -1,6 +1,7 @@
 const url = "https://backend-devephotel-dev-xfed.4.us-1.fl0.io/api/auth";
 
 export const login = async (datos) => {
+
   const res = await fetch(url + "/login", {
     method: "POST",
     body: JSON.stringify(datos),

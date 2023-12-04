@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import {
   getUsuarioById,
@@ -214,3 +215,4 @@ const AdminUsuarioScreen = ({ modoOscuro }) => {
 };
 
 export default AdminUsuarioScreen;
+

@@ -95,7 +95,7 @@ const NavBar = ({
               </li>
               {usuario?.role === "ADMIN_ROLE" && (
                 <li className="nav-item dropdown">
-                  <a
+                  <button
                     className="nav-link dropdown-toggle"
                     data-bs-toggle="dropdown"
                     href="#"
@@ -104,6 +104,7 @@ const NavBar = ({
                   >
                     <i className="fa fa-cog me-1" aria-hidden="true"></i>
                     Admin
+
                   </a>
                   <ul
                     className={`dropdown-menu navbar-custom ${
@@ -115,6 +116,7 @@ const NavBar = ({
                         modoOscuro ? `bg-dark` : `bg-light`
                       }`}
                     >
+
                       <NavLink className="nav-link" to="/admin/usuarios">
                         <i
                           className={`fa fa-user ${
@@ -182,35 +184,39 @@ const NavBar = ({
                 onChange={cambiarModo}
               />
             </div>
-            {login ? (
-              <button
-                className={
-                  modoOscuro
-                    ? "btn btn-secondary m-2 fw-bold"
-                    : "btn btn-info m-2 fw-bold"
-                }
-                onClick={handleLogout}
-              >
-                Cerrar Sesión
-              </button>
-            ) : (
-              <Link to="/login">
+            <Link to="/login">
+              {login ? (
                 <button
                   className={
                     modoOscuro
                       ? "btn btn-secondary m-2 fw-bold"
                       : "btn btn-info m-2 fw-bold"
                   }
+                  onClick={handleLogout}
                 >
-                  Inicio Sesión
+                  Cerrar Sesión
                 </button>
-              </Link>
-            )}
-          </div>
+              ) : (
+                <Link to="/login">
+                  <button
+                    className={
+                      modoOscuro
+                        ? "btn btn-secondary m-2 fw-bold"
+                        : "btn btn-info m-2 fw-bold"
+                    }
+                  >
+                    Inicio Sesión
+                  </button>
+                </Link>
+              )}
+            </Link>
+  
+          </div>     
         </div>
       </nav>
     </div>
   );
 };
+
 
 export default NavBar;

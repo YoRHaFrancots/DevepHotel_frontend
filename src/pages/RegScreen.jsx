@@ -39,6 +39,7 @@ const RegScreen = () => {
                           pattern: {
                             value: /^.{6,20}$/i,
                             message:
+
                               "El nombre debe tener 6 caracteres minimo y 20 como maximo",
                           },
                         })}
@@ -48,6 +49,7 @@ const RegScreen = () => {
                     </fieldset>
                     <fieldset className="col-12">
                       <label htmlFor="password-input" className="form-label ">
+
                         DNI:
                       </label>
                       <input
