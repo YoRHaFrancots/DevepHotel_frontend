@@ -19,7 +19,7 @@ const GalleryScreen = ({ usuario }) => {
     <div className="container">
       <div className="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3 my-4">
         {habitaciones.map((habitacion) => (
-          <div className="">
+          <div key={habitacion._id} className="">
             <div className="card">
               <div className="room-card-img-top">
                 <img
@@ -32,7 +32,7 @@ const GalleryScreen = ({ usuario }) => {
                 <div className="ribbon-text"></div>
               </div>
               <div className="card-body">
-              <h5 className="card-title">{`Habitacion ${habitacion.numroom} `}</h5> <span class="badge text-bg-success">{`${habitacion.price}$`}</span>
+              <h5 className="card-title">{`Habitacion ${habitacion.numroom} `}</h5> <span className="badge text-bg-success">{`${habitacion.price}$`}</span>
               <h6>Fecha:</h6>
               <p className="card-text">
                 {habitacion.description}
