@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+
 import { habitacionesList, habitacionAdd, habitacionUpdate, habitacionDelete} from "../api/habitacionesApi";
 import AdminRoomForm from "../components/AdminRoomForm";
 import backgroundImage from '../assets/imgs/principalHotel.jpg';
@@ -10,12 +11,14 @@ const AdminHabitacionesScreen = () => {
   const [habitaciones, setHabitaciones] = useState([]);
   const [loading, setLoading] = useState(true);
 
+
   const fetchData = async () => {
     const response = await habitacionesList();
     console.log("Response from getUsersWithoutStatus:", response);
     setHabitaciones(response.habitaciones);
     setLoading(false);
   };
+
 
   const addHabitacion = async (roomInfo) => {
     const response = await habitacionAdd(roomInfo);
@@ -46,6 +49,7 @@ const AdminHabitacionesScreen = () => {
         <div className="m-5 table-responsive container">
 
       <AdminRoomForm addHabitacion={addHabitacion}/>
+
       {loading == true ? (
         <>
           <div className="spinner-border custom-spinner" role="state">
@@ -58,6 +62,7 @@ const AdminHabitacionesScreen = () => {
           <table className="table table-hover table-striped table-bordered">
             <thead className="bg-thead">
               <tr>
+
                 {/* <th scope="col" className="text-center">id</th> */}
                 <th scope="col" className="text-center">Numero de habitacion</th>
                 <th scope="col" className="text-center">Tipo de habitacion</th>
@@ -68,11 +73,13 @@ const AdminHabitacionesScreen = () => {
                 <th scope="col" className="text-center">Editar</th>
                 <th scope="col" className="text-center">Eliminar</th>
 
+
               </tr>
             </thead>
             <tbody>
               {habitaciones.map((habitacion)=>(
                 <tr key={habitacion._id}>
+
                   {/* <td className="text-center">{habitacion._id}</td> */}
                   <td className="text-center">{habitacion.numroom}</td>
                   <td className="text-center">{habitacion.typeroom}</td>
@@ -88,6 +95,7 @@ const AdminHabitacionesScreen = () => {
                   <td className="text-center">
                     <button className="btn btn-danger" onClick={() => borrarHabitacion(habitacion._id)}>X</button>
                   </td>                
+
                 </tr>
               ))}
             </tbody>

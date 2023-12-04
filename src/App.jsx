@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import NavBar from "./components/NavBar";
 import "./App.css";
 import Footer from "./components/Footer";
@@ -10,8 +10,6 @@ import GalleryScreen from "./pages/GalleryScreen";
 import LoginScreen from "./pages/LoginScreen";
 import HotelScreen from "./pages/HotelScreen";
 import RegScreen from "./pages/RegScreen";
-import ProtectedRoutes from "./router/ProtectedRoutes";
-import RouterPrimary from "./router/RouterPrimary";
 import AdminPageScreen from "./pages/AdminPageScreen";
 import AdminProtectedRoutes from "./router/AdminprotectedRoutes";
 //import AdminUsuarioScreen from "./pages/AdminUsuarioScreen";
@@ -38,6 +36,12 @@ function App() {
   const cambiarModo = () => {
     setModoOscuro(!modoOscuro);
   };
+
+  useEffect(() => {
+    document.body.classList.remove("app-mode-dark", "app-mode-light");
+    document.body.classList.add(`app-mode-${modoOscuro ? "dark" : "light"}`);
+  }, [modoOscuro]);
+
   return (
     <div className={modoOscuro ? "bg-secondary" : ""}>
       <BrowserRouter>
@@ -51,27 +55,14 @@ function App() {
           setUsuario={setUsuario}
         />
         <Routes>
-          {<Route
-            path="/*"
-            element={
-              <ProtectedRoutes login={login}>
-                <RouterPrimary usuario={usuario} />
-              </ProtectedRoutes>
-            }
-          ></Route> }
-          { <Route
-            path="/admin"
-            element={
-              <AdminProtectedRoutes usuario={usuario}>
-                <AdminPageScreen usuario={usuario} />
-              </AdminProtectedRoutes>
-            }
-          /> }
+
           <Route
             path="/admin/usuarios"
             element={
               <AdminProtectedRoutes usuario={usuario}>
-              {/* <AdminUsuarioScreen usuario={usuario} /> */}
+
+                <AdminUsuarioScreen usuario={usuario} modoOscuro={modoOscuro} />
+
               </AdminProtectedRoutes>
             }
           />
@@ -103,7 +94,13 @@ function App() {
           />
           <Route
             path="/contact"
-            element={<ContactScreen usuario={usuario} />}
+            element={
+              <ContactScreen
+                modoOscuro={modoOscuro}
+                cambiarModo={cambiarModo}
+                usuario={usuario}
+              />
+            }
           />
           <Route
             path="/gallery"

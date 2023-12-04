@@ -14,8 +14,8 @@ const EditarModalUsuario = ({ show, handleClose, uid }) => {
   }, []);
 
   const findUserData = async () => {
-    const { usuario } = await getUsuarioById(uid);
-    setUsuario(usuario);
+    const { user } = await getUsuarioById(uid);
+    setUsuario(user);
   };
 
   const handleChange = (e) => {
@@ -85,8 +85,10 @@ const EditarModalUsuario = ({ show, handleClose, uid }) => {
             </form>
           ) : (
             <>
-              <div className="spinner-border custom-spinner" role="state">
-                <span className="visually-hidden">Loading...</span>
+              <div className="spinner">
+                <div className="spinner-border custom-spinner" role="state">
+                  <span className="visually-hidden">Loading...</span>
+                </div>
               </div>
               <br />
               <br />
