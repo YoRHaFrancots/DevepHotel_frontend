@@ -16,7 +16,7 @@ const AdminHabitacionesScreen = () => {
   };
 
   const addHabitacion = async (roomInfo) => {
-    await habitacionAdd(roomInfo);
+    const response = await habitacionAdd(roomInfo);
     console.log(response)
     fetchData(); 
   };
