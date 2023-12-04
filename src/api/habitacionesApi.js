@@ -17,6 +17,7 @@ export const habitacionesList = async (pagina) => {
   };
 
   export const habitacionAdd = async (datos)=>{
+    const token = JSON.parse(localStorage.getItem("token"))
     const resp = await fetch(url, {
       method: "POST",
       body: JSON.stringify(datos),
@@ -33,7 +34,9 @@ export const habitacionesList = async (pagina) => {
   };
 
   export const habitacionUpdate = async (id, datos) => {
+    const token = JSON.parse(localStorage.getItem("token"))
     const resp = await fetch(url+'/'+ id, {
+      
       method: "PUT",
       body:JSON.stringify(datos),
       headers: {
@@ -48,6 +51,7 @@ export const habitacionesList = async (pagina) => {
   };
 
   export const habitacionDelete = async (id) => {
+    const token = JSON.parse(localStorage.getItem("token"))
     const resp = await fetch(url + "/" + id,  {
       method: "DELETE",
       headers: {
