@@ -46,6 +46,9 @@ const GalleryScreen = ({ usuario }) => {
           </div>
         ))}
       </div>
+      <div>‎ </div>
+        <div>‎ </div>
+        <div>‎ </div>
     </div>
   );
 };

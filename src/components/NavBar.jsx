@@ -104,8 +104,7 @@ const NavBar = ({
                   >
                     <i className="fa fa-cog me-1" aria-hidden="true"></i>
                     Admin
-
-                  </a>
+                  </button>
                   <ul
                     className={`dropdown-menu navbar-custom ${
                       modoOscuro ? `bg-dark` : `bg-light`
@@ -116,7 +115,6 @@ const NavBar = ({
                         modoOscuro ? `bg-dark` : `bg-light`
                       }`}
                     >
-
                       <NavLink className="nav-link" to="/admin/usuarios">
                         <i
                           className={`fa fa-user ${
@@ -162,7 +160,7 @@ const NavBar = ({
               )}
               {usuario?.role === "USER_ROLE" && (
                 <li className="nav-item dropdown">
-                  <a
+                  <button
                     className="nav-link"
                     href="#"
                     role="button"
@@ -170,7 +168,7 @@ const NavBar = ({
                   >
                     <i className="fa fa-cog me-1" aria-hidden="true"></i>
                     Mi panel
-                  </a>
+                  </button>
                 </li>
               )}
             </ul>
@@ -210,13 +208,11 @@ const NavBar = ({
                 </Link>
               )}
             </Link>
-  
-          </div>     
+          </div>
         </div>
       </nav>
     </div>
   );
 };
-
 
 export default NavBar;

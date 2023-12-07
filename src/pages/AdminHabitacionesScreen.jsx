@@ -100,6 +100,10 @@ const AdminHabitacionesScreen = () => {
               ))}
             </tbody>
           </table>
+          <div>‎ </div>
+        <div>‎ </div>
+        <div>‎ </div>
+        <div>‎ </div>
         </div>
       )}
     </div>
