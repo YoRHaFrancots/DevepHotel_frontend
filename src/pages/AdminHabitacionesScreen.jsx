@@ -1,112 +1,81 @@
-import React from "react";
-import { useState, useEffect } from "react";
-
-import { habitacionesList, habitacionAdd, habitacionUpdate, habitacionDelete} from "../api/habitacionesApi";
-import AdminRoomForm from "../components/AdminRoomForm";
+import React, { useState, useEffect } from 'react';
+import { habitacionesList, habitacionDelete } from '../api/habitacionesApi';
+import TablaHabitacion from '../components/TablaHabitacion';
+import EditarModalHabitacion from '../components/EditarModalHabitacion';
+import AdminRoomForm from '../components/AdminRoomForm';
 import backgroundImage from '../assets/imgs/principalHotel.jpg';
 
-
 const AdminHabitacionesScreen = () => {
-
   const [habitaciones, setHabitaciones] = useState([]);
   const [loading, setLoading] = useState(true);
-
-
-  const fetchData = async () => {
-    const response = await habitacionesList();
-    console.log("Response from getUsersWithoutStatus:", response);
-    setHabitaciones(response.habitaciones);
-    setLoading(false);
-  };
-
-
-  const addHabitacion = async (roomInfo) => {
-    const response = await habitacionAdd(roomInfo);
-    console.log(response)
-    fetchData(); 
-  };
-
-  const borrarHabitacion = async (id) => {
-    const validar = confirm("Está seguro que quiere borrar el producto?")
-    if(validar){
-      const respuesta = await habitacionDelete(id, { available:false})
-      console.log(respuesta)
-      fetchData()
-    }
-  };
+  const [editableRoom, setEditableRoom] = useState({});
+  const [showModal, setShowModal] = useState(false); // Agregar estado para el modal
 
   useEffect(() => {
-    console.log("fetching data...");
+    const fetchData = async () => {
+      try {
+        const response = await habitacionesList();
+        setHabitaciones(response.habitaciones);
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        setLoading(false);
+      }
+    };
     fetchData();
   }, []);
 
-    return (
-      <div style={{ 
-        backgroundImage: `url(${backgroundImage})`,
-        backgroundSize: 'cover',
+  const handleEdit = (habitacion) => {
+    setEditableRoom(habitacion);
+    setShowModal(true);
+  };
 
-      }}>
-        <div className="m-5 table-responsive container">
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
 
-      <AdminRoomForm addHabitacion={addHabitacion}/>
+  const handleUpdateHabitacion = (updatedRoom) => {
+    const updatedHabitaciones = habitaciones.map((habitacion) =>
+      habitacion._id === updatedRoom._id ? updatedRoom : habitacion
+    );
+    setHabitaciones(updatedHabitaciones);
+    setShowModal(false);
+  };
 
-      {loading == true ? (
-        <>
-          <div className="spinner-border custom-spinner" role="state">
-            <span className="visually-hidden">Loading...</span>
-          </div>
+  const handleDelete = async (id) => {
+    try {
+      const response = await habitacionDelete(id);
+      if (response.ok) {
+        const updatedHabitaciones = habitaciones.filter((habitacion) => habitacion._id !== id);
+        setHabitaciones(updatedHabitaciones);
+      } else {
+        console.error('Error al eliminar la habitación:', response.error);
+      }
+    } catch (error) {
+      console.error('Error al eliminar la habitación:', error);
+    }
+  };
 
-        </>
+  return (
+    <div style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover' }}>
+      <AdminRoomForm/>
+      
+      {loading ? (
+        <div>Cargando habitaciones...</div>
       ) : (
-        <div className="m-5 table responsive container">
-          <table className="table table-hover table-striped table-bordered">
-            <thead className="bg-thead">
-              <tr>
-
-                {/* <th scope="col" className="text-center">id</th> */}
-                <th scope="col" className="text-center">Numero de habitacion</th>
-                <th scope="col" className="text-center">Tipo de habitacion</th>
-                <th scope="col" className="text-center">Fecha disponible</th>
-                <th scope="col" className="text-center">Precio</th>
-                <th scope="col" className="text-center">Disponibilidad</th>
-                <th scope="col" className="text-center">Foto</th>
-                <th scope="col" className="text-center">Editar</th>
-                <th scope="col" className="text-center">Eliminar</th>
-
-
-              </tr>
-            </thead>
-            <tbody>
-              {habitaciones.map((habitacion)=>(
-                <tr key={habitacion._id}>
-
-                  {/* <td className="text-center">{habitacion._id}</td> */}
-                  <td className="text-center">{habitacion.numroom}</td>
-                  <td className="text-center">{habitacion.typeroom}</td>
-                  <td className="text-center">{habitacion.description}</td>
-                  <td className="text-center">{habitacion.price}</td>
-                  <td className="text-center">{habitacion.available ? 'Libre' : 'Ocupado'}</td>
-                  <td className="text-center">
-                        <img src={habitacion.photo} alt="Habitación" style={{width: "100px"}}/>
-                  </td>
-                  <td className="text-center">
-                    <button style={{backgroundColor: 'orange'}} onClick={() => handleEdit(habitacion)}>Editar</button>
-                  </td>
-                  <td className="text-center">
-                    <button className="btn btn-danger" onClick={() => borrarHabitacion(habitacion._id)}>X</button>
-                  </td>                
-
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          <div>‎ </div>
-        <div>‎ </div>
-        <div>‎ </div>
-        <div>‎ </div>
-        </div>
+        <TablaHabitacion
+          habitaciones={habitaciones}
+          onEdit={handleEdit}
+          onDelete={handleDelete}
+        />
       )}
-    </div>
+      {/* Mostrar modal si showModal es true */}
+      <EditarModalHabitacion
+        show={showModal}
+        room={editableRoom}
+        onSave={handleUpdateHabitacion}
+        onClose={handleCloseModal}
+      />
     </div>
   );
 };
