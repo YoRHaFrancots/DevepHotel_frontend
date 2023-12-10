@@ -3,7 +3,7 @@ import React from 'react';
 const TablaHabitacion = ({ habitaciones, onEdit, onDelete }) => {
   return (
     
-    <table className="table">
+    <table className="table mt-5">
       <thead>
         <tr>
           <th scope="col" className="text-center">Numero de habitacion</th>

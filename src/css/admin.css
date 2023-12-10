@@ -1,39 +1,34 @@
-/* Estilos para la tabla */
 .table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 20px;
-  overflow-x: auto; /* Permitir desplazamiento horizontal en tablas grandes */
+  overflow-x: auto;
 }
 
-/* Ajustar el ancho de columnas específicas */
 .table th:nth-child(1),
 .table td:nth-child(1) {
-  width: 10%; /* Cambiar el ancho de la primera columna */
+  width: 10%; 
 }
 
 .table th:nth-child(5),
 .table td:nth-child(5) {
-  width: 15%; /* Cambiar el ancho de la quinta columna */
+  width: 15%; 
 }
 
-/* Estilos para la imagen */
 .table img {
-  max-width: 80px; /* Reducir el ancho máximo de las imágenes */
+  max-width: 80px; 
   height: auto;
   display: block;
   margin: 0 auto;
 }
 
-/* Estilos para hacer la tabla más responsive */
 @media screen and (max-width: 768px) {
   .table th,
   .table td {
-    font-size: 12px; /* Reducir el tamaño de la fuente en pantallas más pequeñas */
-    padding: 6px; /* Ajustar el espaciado */
+    font-size: 12px; 
+    padding: 6px; 
   }
 }
-
 
 .admin-habitaciones-container {
   background-image: url('../assets/imgs/principalHotel.jpg');
