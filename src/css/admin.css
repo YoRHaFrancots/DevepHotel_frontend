@@ -1,38 +1,48 @@
-body {
-  min-height: 100vh !important;
+/* Estilos para la tabla */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  overflow-x: auto; /* Permitir desplazamiento horizontal en tablas grandes */
 }
 
-.bg-thead {
-  background-color: #4c4c6d !important;
-  color: white;
+/* Ajustar el ancho de columnas específicas */
+.table th:nth-child(1),
+.table td:nth-child(1) {
+  width: 10%; /* Cambiar el ancho de la primera columna */
 }
 
-.no-border {
-  border-width: 0px !important;
-  border-style: none;
+.table th:nth-child(5),
+.table td:nth-child(5) {
+  width: 15%; /* Cambiar el ancho de la quinta columna */
 }
 
-.btn-pay {
-  color: white !important;
-  background-color: #4c4c6d !important;
+/* Estilos para la imagen */
+.table img {
+  max-width: 80px; /* Reducir el ancho máximo de las imágenes */
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }
 
-.btn-green {
-  color: white !important;
-  background-color: #5cb85c !important;
+/* Estilos para hacer la tabla más responsive */
+@media screen and (max-width: 768px) {
+  .table th,
+  .table td {
+    font-size: 12px; /* Reducir el tamaño de la fuente en pantallas más pequeñas */
+    padding: 6px; /* Ajustar el espaciado */
+  }
 }
 
-.btn-green:hover {
-  color: white !important;
-  background-color: #4c994c !important;
-}
 
-.btn-red {
-  color: white !important;
-  background-color: #dc3545 !important;
-}
-
-.btn-red:hover {
-  color: white !important;
-  background-color: #b03a3a !important;
+.admin-habitaciones-container {
+  background-image: url('../assets/imgs/principalHotel.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }

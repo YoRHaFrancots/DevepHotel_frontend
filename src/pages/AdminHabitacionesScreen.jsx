@@ -4,6 +4,7 @@ import TablaHabitacion from '../components/TablaHabitacion';
 import EditarModalHabitacion from '../components/EditarModalHabitacion';
 import AdminRoomForm from '../components/AdminRoomForm';
 import backgroundImage from '../assets/imgs/principalHotel.jpg';
+import '../css/admin.css'
 
 const AdminHabitacionesScreen = () => {
   const [habitaciones, setHabitaciones] = useState([]);
@@ -57,7 +58,7 @@ const AdminHabitacionesScreen = () => {
   };
 
   return (
-    <div style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover' }}>
+    <div className='admin-habitaciones-container'>
       <AdminRoomForm/>
       
       {loading ? (

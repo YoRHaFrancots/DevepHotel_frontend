@@ -2,6 +2,7 @@ import React from 'react';
 
 const TablaHabitacion = ({ habitaciones, onEdit, onDelete }) => {
   return (
+    
     <table className="table">
       <thead>
         <tr>
