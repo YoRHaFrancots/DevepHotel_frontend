@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { habitacionesList, habitacionDelete } from '../api/habitacionesApi';
+import { habitacionesList, habitacionDelete, habitacionAdd } from '../api/habitacionesApi';
 import TablaHabitacion from '../components/TablaHabitacion';
 import EditarModalHabitacion from '../components/EditarModalHabitacion';
 import AdminRoomForm from '../components/AdminRoomForm';
+
 import backgroundImage from '../assets/imgs/principalHotel.jpg';
 import '../css/admin.css'
 
@@ -57,9 +58,23 @@ const AdminHabitacionesScreen = () => {
     }
   };
 
+  const addHabitacion = async (newRoom) => {
+    try {
+      const response = await habitacionAdd(newRoom);
+      if (response.ok) {
+        setHabitaciones([...habitaciones, response.habitacion]);
+      } else {
+        console.error('Error al agregar la habitación:', response.error);
+      }
+    } catch (error) {
+      console.error('Error al agregar la habitación:', error);
+    }
+  };
+  
+
   return (
     <div className='admin-habitaciones-container'>
-      <AdminRoomForm/>
+      <AdminRoomForm addHabitacion={addHabitacion} />
       
       {loading ? (
         <div>Cargando habitaciones...</div>

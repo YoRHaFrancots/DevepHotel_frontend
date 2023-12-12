@@ -1,84 +1,26 @@
-// import React, { useState } from "react";
-// import "bootstrap/dist/css/bootstrap.min.css";
-// import { useForm } from "react-hook-form";
-// import { habitacionAdd } from "../api/habitacionesApi";
-
-// const AdminRoomForm = ({ addHabitacion }) => {
-//   const [roomInfo, setRoomInfo] = useState({
-//     numroom: 0,
-//     typeroom: "",
-//     price: 0,
-//     description: "",
-//     available: true,
-//     photo: "",
-//   });
-
-//   const handleChange = (event) => {
-//     setRoomInfo({
-//       ...roomInfo,
-//       [event.target.name]: event.target.value,
-//     });
-//   };
-
-//   const handleSubmit = async (event) => {
-//     event.preventDefault();
-//     await habitacionAdd(roomInfo);
-//     setRoomInfo({
-//       numroom: 0,
-//       typeroom: "",
-//       price: 0,
-//       description: "",
-//       available: true,
-//       photo: "",
-//     });
-//   };
-
-//   return (
-//     <div className="container-fluid bg-image">
-//       <div className="row d-flex justify-content-center align-items-center vh-100">
-//         <div className="col-lg-6 col-md-8">
-//           <div className="card p-4">
-//             <h2 className="mb-4">Agregar Habitación</h2>
-//             <form onSubmit={handleSubmit}>
-//               {Object.entries(roomInfo).map(([key, value]) => (
-//                 <div className="form-group" key={key}>
-//                   <label>{key}:</label>
-//                   <input
-//                     type="text"
-//                     className="form-control"
-//                     name={key}
-//                     value={roomInfo[key]}
-//                     onChange={handleChange}
-//                   />
-//                 </div>
-//               ))}
-//               <button type="submit" className="btn btn-primary mt-3">
-//                 Guardar
-//               </button>
-//             </form>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default AdminRoomForm;
-
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { habitacionAdd } from "../api/habitacionesApi"; 
+import "bootstrap/dist/css/bootstrap.min.css";
 
-const AdminRoomForm = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+const AdminRoomForm = ({ addHabitacion }) => {
+  const { register, handleSubmit, formState: { errors } } = useForm();
+  const [roomInfo, setRoomInfo] = useState({
+    numroom: '',
+    typeroom: '',
+    price: '',
+    description: '',
+    available: true,
+    photo: '',
+    availableDate: '',
+  });
 
-  const onSubmit = (data) => {
-    console.log(data); // Aquí puedes manejar los datos del formulario
+  const onSubmit = async (data) => {
+    // Llamar a la función addHabitacion pasada como prop para agregar la habitación
+    await addHabitacion(data);
+    // Resetear el formulario aquí si es necesario
   };
-
+       
   return (
     <div className="admin-form-container">
       <h2 className="mb-4 text-white" >Agregar Habitación</h2>
