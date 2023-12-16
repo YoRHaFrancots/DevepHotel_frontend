@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { habitacionesList } from "../api/habitacionesApi";
 import "../css/gallery.css";
 
-const GalleryScreen = ({ usuario }) => {
+const GalleryScreen = ({ usuario, modoOscuro }) => {
   const [habitaciones, setHabitaciones] = useState([]);
   useEffect(() => {
     console.log("fetching data...");
@@ -31,24 +31,26 @@ const GalleryScreen = ({ usuario }) => {
               <div className="ribbon-box ribbon-label is-green">
                 <div className="ribbon-text"></div>
               </div>
-              <div className="card-body">
-              <h5 className="card-title">{`Habitacion ${habitacion.numroom} `}</h5> <span className="badge text-bg-success">{`${habitacion.price}$`}</span>
-              <h6>Fecha:</h6>
-              <p className="card-text">
-                {habitacion.description}
-              </p>
-              <h6>Tipo:</h6>
-              <p className="card-text">{habitacion.typeroom}</p>
-              <button className="btn btn-primary">Reservar</button>
+              <div className={`card-body ${modoOscuro ? "bg-dark" : ""}`}>
+                <h5 className="card-title">{`Habitacion ${habitacion.numroom} `}</h5>{" "}
+                <span className="badge text-bg-success">{`${habitacion.price}$`}</span>
+                <h6>Fecha:</h6>
+                <p className={`card-text ${modoOscuro ? "text-white" : ""}`}>
+                  {habitacion.description}
+                </p>
+                <h6 className={`${modoOscuro ? "text-white" : ""}`}>Tipo:</h6>
+                <p className={`card-text ${modoOscuro ? "text-white" : ""}`}>
+                  {habitacion.typeroom}
+                </p>
+                <button className="btn btn-primary">Reservar</button>
+              </div>
             </div>
-            </div>
-            
           </div>
         ))}
       </div>
       <div>‎ </div>
-        <div>‎ </div>
-        <div>‎ </div>
+      <div>‎ </div>
+      <div>‎ </div>
     </div>
   );
 };

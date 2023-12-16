@@ -101,7 +101,9 @@ function App() {
           />
           <Route
             path="/gallery"
-            element={<GalleryScreen usuario={usuario} />}
+            element={
+              <GalleryScreen usuario={usuario} modoOscuro={modoOscuro} />
+            }
           />
           <Route
             path="/login"
