@@ -16,6 +16,7 @@ const NavBar = ({
   setUsuario,
 }) => {
   const [logged, setLogged] = useState(false);
+  const [mostrarMensaje, setMostrarMensaje] = useState(false);
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -165,10 +166,28 @@ const NavBar = ({
                     href="#"
                     role="button"
                     aria-expanded="false"
+                    onClick={() => setMostrarMensaje(true)}
                   >
                     <i className="fa fa-cog me-1" aria-hidden="true"></i>
                     Mi panel
                   </button>
+
+                  {mostrarMensaje && (
+                    <div
+                      className="alert alert-warning alert-dismissible fade show"
+                      role="alert"
+                    >
+                      Estamos trabajando en esta página para ofrecer un servicio
+                      más completo, disculpe las molestias ocasionadas.
+                      <button
+                        type="button"
+                        className="btn-close"
+                        data-bs-dismiss="alert"
+                        aria-label="Close"
+                        onClick={() => setMostrarMensaje(false)}
+                      ></button>
+                    </div>
+                  )}
                 </li>
               )}
             </ul>
