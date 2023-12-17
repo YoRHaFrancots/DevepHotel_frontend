@@ -36,21 +36,21 @@ const EditarModalUsuario = ({ show, handleClose, uid }) => {
     <>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Editar Usuario</Modal.Title>
+          <Modal.Title className="text-black">Editar Usuario</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           {usuario ? (
             <form onSubmit={handleSubmit}>
-              <label className="fw-bold">Nombre</label>
+              <label className="fw-bold text-black">Nombre</label>
               <input
                 type="text"
                 className="form-control"
-                value={usuario.nombre}
+                value={usuario.name}
                 name="name"
                 onChange={handleChange}
                 maxLength={40}
               />
-              <label className="fw-bold">Email</label>
+              <label className="fw-bold text-black">Email</label>
               <input
                 type="email"
                 className="form-control"
@@ -60,10 +60,10 @@ const EditarModalUsuario = ({ show, handleClose, uid }) => {
                 maxLength={40}
               />
               <div className="my-2">
-                <p>
+                <p className="text-black">
                   <span className="fw-bold">Rol:</span> {usuario.role}
                 </p>
-                <label className="fw-bold">Cambiar rol</label>
+                <label className="fw-bold text-black">Cambiar rol</label>
                 <select
                   className="form-select"
                   name="role"
