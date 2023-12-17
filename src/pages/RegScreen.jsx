@@ -21,11 +21,11 @@ const RegScreen = (modoOscuro) => {
       <div className="container">
         <div className="row vh-100 d-flex align-items-center ">
           <div className="col-12 col-md-6 offset-md-3">
-            <div className={` ${modoOscuro ? "card bg-dark" : "card "}`}>
+            <div className="card bg-secondary">
               <div className="card-body">
                 <form noValidate onSubmit={handleSubmit(registrarse)}>
                   <h1
-                    className={`text-center ${modoOscuro ? "modoOscuro" : ""}`}
+                    className={`text-center ${modoOscuro ? "text-white" : ""}`}
                   >
                     Registrarse
                   </h1>
