@@ -40,21 +40,14 @@
   width: 100%;
 }
 
-.input_formPersonas {
-  width: 50px;
-}
-
-.input_form {
-  justify-content: end;
-}
-
 .textoHomeScreen {
   position: absolute;
-  top: 25%;
+  top: 10%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
   z-index: 2;
   color: #fff;
-  font-size: 210%;
+  font-size: 150%;
+  white-space: nowrap;
 }

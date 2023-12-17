@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { usuarioAdd } from "../api/usuariosApi";
 
-const RegScreen = () => {
+const RegScreen = (modoOscuro) => {
   const [reg, setReg] = useState(false);
   const {
     register,
@@ -21,13 +21,22 @@ const RegScreen = () => {
       <div className="container">
         <div className="row vh-100 d-flex align-items-center ">
           <div className="col-12 col-md-6 offset-md-3">
-            <div className="card">
+            <div className="card bg-secondary">
               <div className="card-body">
                 <form noValidate onSubmit={handleSubmit(registrarse)}>
-                  <h1>Registrarse</h1>
+                  <h1
+                    className={`text-center ${modoOscuro ? "text-white" : ""}`}
+                  >
+                    Registrarse
+                  </h1>
                   <section className="row">
                     <fieldset className="col-12 ">
-                      <label htmlFor="Name-input" className="form-label ">
+                      <label
+                        htmlFor="Name-input"
+                        className={`form-label ${
+                          modoOscuro ? "modoOscuro" : ""
+                        }`}
+                      >
                         Nombre y apellido:
                       </label>
                       <input
@@ -39,7 +48,6 @@ const RegScreen = () => {
                           pattern: {
                             value: /^.{6,20}$/i,
                             message:
-
                               "El nombre debe tener 6 caracteres minimo y 20 como maximo",
                           },
                         })}
@@ -48,8 +56,12 @@ const RegScreen = () => {
                       <p className="text-danger">{errors.name?.message}</p>
                     </fieldset>
                     <fieldset className="col-12">
-                      <label htmlFor="password-input" className="form-label ">
-
+                      <label
+                        htmlFor="password-input"
+                        className={`form-label ${
+                          modoOscuro ? "modoOscuro" : ""
+                        }`}
+                      >
                         DNI:
                       </label>
                       <input
@@ -68,7 +80,12 @@ const RegScreen = () => {
                       <p className="text-danger">{errors.dni?.message}</p>
                     </fieldset>
                     <fieldset className="col-12 ">
-                      <label htmlFor="Email-input" className="form-label ">
+                      <label
+                        htmlFor="Email-input"
+                        className={`form-label ${
+                          modoOscuro ? "modoOscuro" : ""
+                        }`}
+                      >
                         Correo Electronico:
                       </label>
                       <input
@@ -88,7 +105,12 @@ const RegScreen = () => {
                     </fieldset>
 
                     <fieldset className="col-12">
-                      <label htmlFor="password-input" className="form-label ">
+                      <label
+                        htmlFor="password-input"
+                        className={`form-label ${
+                          modoOscuro ? "modoOscuro" : ""
+                        }`}
+                      >
                         Contraseña:
                       </label>
                       <input
