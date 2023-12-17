@@ -1,38 +1,43 @@
-body {
-  min-height: 100vh !important;
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  overflow-x: auto;
 }
 
-.bg-thead {
-  background-color: #4c4c6d !important;
-  color: white;
+.table th:nth-child(1),
+.table td:nth-child(1) {
+  width: 10%; 
 }
 
-.no-border {
-  border-width: 0px !important;
-  border-style: none;
+.table th:nth-child(5),
+.table td:nth-child(5) {
+  width: 15%; 
 }
 
-.btn-pay {
-  color: white !important;
-  background-color: #4c4c6d !important;
+.table img {
+  max-width: 80px; 
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }
 
-.btn-green {
-  color: white !important;
-  background-color: #5cb85c !important;
+@media screen and (max-width: 768px) {
+  .table th,
+  .table td {
+    font-size: 12px; 
+    padding: 6px; 
+  }
 }
 
-.btn-green:hover {
-  color: white !important;
-  background-color: #4c994c !important;
-}
-
-.btn-red {
-  color: white !important;
-  background-color: #dc3545 !important;
-}
-
-.btn-red:hover {
-  color: white !important;
-  background-color: #b03a3a !important;
+.admin-habitaciones-container {
+  background-image: url('../assets/imgs/principalHotel.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
