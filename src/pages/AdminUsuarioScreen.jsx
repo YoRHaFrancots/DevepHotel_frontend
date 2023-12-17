@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import {
   getUsuarioById,
@@ -181,15 +180,18 @@ const AdminUsuarioScreen = ({ modoOscuro }) => {
                     </button>
                   </td>
                   <td className="text-center">
-                    <button
-                      className="btn"
-                      onClick={() => blockUser(usuario.uid)}
-                    >
-                      <i
-                        className="fa fa-trash text-danger"
-                        aria-hidden="true"
-                      ></i>
-                    </button>
+                    {usuario && usuario.role !== "ADMIN_ROLE" && (
+                      <button
+                        className="btn"
+                        onClick={() => blockUser(usuario.uid)}
+                      >
+                        <i
+                          className="fa fa-trash text-danger"
+                          aria-hidden="true"
+                        ></i>
+                      </button>
+                    )}
+
                     <button
                       className="btn"
                       onClick={() => handleShow(usuario.uid)}
@@ -215,4 +217,3 @@ const AdminUsuarioScreen = ({ modoOscuro }) => {
 };
 
 export default AdminUsuarioScreen;
-
