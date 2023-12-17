@@ -53,13 +53,14 @@ const AdminUsuarioScreen = ({ modoOscuro }) => {
   // Block Order
   const blockUser = async (uid) => {
     const response = await getUsuarioById(uid);
+    const usuario = response.user;
     console.log(response);
-    if (response.user.role === "ADMIN_ROLE") {
+    if (usuario.role === "ADMIN_ROLE") {
       MySwal.fire("No se puede bloquear a un administrador", "", "info");
       return;
     } else {
       MySwal.fire({
-        title: `¿Está seguro de que quiere inactivar el usuario con ID ${uid}?`,
+        title: `¿Está seguro de que quiere inactivar el usuario con email ${usuario.email}?`,
         showDenyButton: true,
         showCancelButton: false,
         confirmButtonText: "Sí",
@@ -139,9 +140,6 @@ const AdminUsuarioScreen = ({ modoOscuro }) => {
             <thead className="bg-thead">
               <tr>
                 <th scope="col" className="text-center">
-                  Id
-                </th>
-                <th scope="col" className="text-center">
                   Nombre
                 </th>
                 <th scope="col" className="text-center">
@@ -164,7 +162,6 @@ const AdminUsuarioScreen = ({ modoOscuro }) => {
             <tbody>
               {usuarios.map((usuario) => (
                 <tr key={usuario.uid}>
-                  <td className="text-center">{usuario.uid}</td>
                   <td className="text-center">{usuario.name}</td>
                   <td className="text-center">{usuario.email}</td>
                   <td className="text-center">{usuario.dni}</td>
