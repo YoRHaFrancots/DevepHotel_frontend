@@ -1,38 +1,44 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { habitacionAdd } from "../api/habitacionesApi"; 
+import { habitacionAdd } from "../api/habitacionesApi";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const AdminRoomForm = ({ addHabitacion }) => {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
+
   const [roomInfo, setRoomInfo] = useState({
-    numroom: '',
-    typeroom: '',
-    price: '',
-    description: '',
+    numroom: 0,
+    typeroom: "SIMPLE",
+    price: 0,
+    description: "",
     available: true,
-    photo: '',
-    availableDate: '',
+    photo: "",
   });
 
   const onSubmit = async (data) => {
-    // Llamar a la función addHabitacion pasada como prop para agregar la habitación
     await addHabitacion(data);
-    // Resetear el formulario aquí si es necesario
+    reset()
   };
-       
+  
+
   return (
     <div className="admin-form-container">
-      <h2 className="mb-4 text-white" >Agregar Habitación</h2>
+      <h2 className="mb-4 text-white">Agregar Habitación</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="form-group">
           <label className="text-white">Número de habitación:</label>
-          <input placeholder="Numero de Habitación"
-            type="text"
+          <input
+            placeholder="Numero de Habitación"
+            type="number"
             {...register("numroom", {
               required: "Este campo es requerido",
               pattern: {
-                value: /^\d+$/,
+                valueAsNumber: true,
                 message: "Ingrese un número válido",
               },
             })}
@@ -45,16 +51,16 @@ const AdminRoomForm = ({ addHabitacion }) => {
 
         <div className="form-group">
           <label className="text-white">Tipo de habitación:</label>
-<select
-            {...register('typeroom', {
-              required: 'Seleccione un tipo de habitación',
+          <select
+            {...register("typeroom", {
+              required: "Seleccione un tipo de habitación",
             })}
-            className={`form-control ${errors.typeroom ? 'is-invalid' : ''}`}
+            className={`form-control ${errors.typeroom ? "is-invalid" : ""}`}
           >
             <option value="">Tipo de Habitación</option>
             <option value="SIMPLE">Simple</option>
             <option value="DOBLE">Doble</option>
-            <option value="BUNGALOW FAMILIAR">Bungalow Familiar</option>
+            <option value="BUNGALOW_FAMILIAR">Bungalow Familiar</option>
           </select>
           {errors.typeroom && (
             <span className="invalid-feedback">{errors.typeroom.message}</span>
@@ -63,8 +69,9 @@ const AdminRoomForm = ({ addHabitacion }) => {
 
         <div className="form-group">
           <label className="text-white">Precio:</label>
-          <input placeholder="Precio por noche"
-            type="text"
+          <input
+            placeholder="Precio por noche"
+            type="number"
             {...register("price", {
               required: "Este campo es requerido",
               pattern: {
@@ -80,19 +87,17 @@ const AdminRoomForm = ({ addHabitacion }) => {
         </div>
 
         <div className="form-group">
-          <label className="text-white">Fecha:</label>
+          <label className="text-white">Descripción:</label>
           <input
-            type="date"
-            {...register("availableDate", {
+            type="text"
+            {...register("description", {
               required: "Este campo es requerido",
             })}
-            className={`form-control ${
-              errors.availableDate ? "is-invalid" : ""
-            }`}
+            className={`form-control ${errors.description ? "is-invalid" : ""}`}
           />
-          {errors.availableDate && (
+          {errors.description && (
             <span className="invalid-feedback">
-              {errors.availableDate.message}
+              {errors.description.message}
             </span>
           )}
         </div>
@@ -117,9 +122,15 @@ const AdminRoomForm = ({ addHabitacion }) => {
         <div className="form-group">
           <label className="text-white">Foto:</label>
           <input
-            type="file"
+            type="text" // Cambiado de 'file' a 'text'
+            placeholder="URL de la foto"
             {...register("photo", {
               required: "Este campo es requerido",
+              pattern: {
+                value:
+                  /^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|webp|svg)(\?.*)?)$/,
+                message: "Ingrese una URL válida de la imagen",
+              },
             })}
             className={`form-control ${errors.photo ? "is-invalid" : ""}`}
           />

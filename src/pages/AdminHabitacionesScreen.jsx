@@ -58,11 +58,12 @@ const AdminHabitacionesScreen = () => {
     }
   };
 
-  const addHabitacion = async (newRoom) => {
+  const addHabitacion = async (roomInfo) => {
     try {
-      const response = await habitacionAdd(newRoom);
+      const response = await habitacionAdd(roomInfo);
       if (response.ok) {
-        setHabitaciones([...habitaciones, response.habitacion]);
+        const updatedResponse = await habitacionesList();
+        setHabitaciones(updatedResponse.habitaciones);
       } else {
         console.error('Error al agregar la habitación:', response.error);
       }
@@ -71,7 +72,6 @@ const AdminHabitacionesScreen = () => {
     }
   };
   
-
   return (
     <div className='admin-habitaciones-container'>
       <AdminRoomForm addHabitacion={addHabitacion} />
