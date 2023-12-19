@@ -201,7 +201,7 @@ const NavBar = ({
                 onChange={cambiarModo}
               />
             </div>
-            <Link to="/login">
+            
               {login ? (
                 <button
                   className={
@@ -226,7 +226,7 @@ const NavBar = ({
                   </button>
                 </Link>
               )}
-            </Link>
+            
           </div>
         </div>
       </nav>
