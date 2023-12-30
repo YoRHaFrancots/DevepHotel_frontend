@@ -25,7 +25,7 @@ const AdminHabitacionesScreen = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [habitaciones]);
 
   const handleEdit = (habitacion) => {
     setEditableRoom(habitacion);
@@ -62,15 +62,17 @@ const AdminHabitacionesScreen = () => {
     try {
       const response = await habitacionAdd(roomInfo);
       if (response.ok) {
-        const updatedResponse = await habitacionesList();
-        setHabitaciones(updatedResponse.habitaciones);
+        const updatedHabitaciones = [...habitaciones, response.habitacion];
+        setHabitaciones(updatedHabitaciones);
       } else {
-        console.error('Error al agregar la habitación:', response.error);
+        // Manejar el error si la respuesta no es 'ok'
+        console.log('Error al agregar la habitación:', response.error);
       }
     } catch (error) {
-      console.error('Error al agregar la habitación:', error);
+      console.log('Error al agregar la habitación:', error);
     }
   };
+  
   
   return (
     <div className='admin-habitaciones-container'>

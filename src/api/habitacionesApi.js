@@ -1,5 +1,4 @@
-const url =
-  "https://backend-devephotel-dev-xfed.4.us-1.fl0.io/api/habitaciones";
+const url =  "https://backend-devephotel-dev-xfed.4.us-1.fl0.io/api/habitaciones";
 const token = JSON.parse(localStorage.getItem("token")) || null;
 
 const habitacionesList = async (pagina) => {
